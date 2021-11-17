@@ -1,0 +1,71 @@
+\section{Wolfram Alpha}
+Wolfram Alpha (WA) is an online tool that can perform many useful tasks.  Essentially every problem posed in this text could be done using WA.  It is therefore worthwhile to learn some basic input.  Of course, much more can be done with WA than is presented here.  
+
+\subsection{Solving Algebraic Expressions}
+An algebraic expression is an equation where one wishes to find a value for a variable (resp. variables) which make the equality in the equation (resp. equations) hold.  
+
+\begin{ex}{One Variable Algebraic Expression}{one_variable_expression}
+Consider the equation
+\[
+3x^4+2x^3+x-5=0.
+\]
+The goal is to find the value of $x$ so that the left hand side is equal to zero.  There is a formula like the quadratic formula one can use to solve this, but it is rather ugly (see: quartic formula). So, it is rather appealing to use technology to quickly solve this for us.
+
+In the WA entry box, type
+
+\begin{center}
+\begin{BVerbatim}
+    3x^4+2x^3+x-5=0
+\end{BVerbatim}
+\end{center}
+
+and press enter.  Give the computation some time, and verify that you find the following solutions:
+\begin{align*}
+    x &\approx -1.4176\\
+    x &\approx 0.94346\\
+    x &\approx 0.09627 - 1.11216 i\\
+    x &\approx 0.09627 + 1.11216 i.
+\end{align*}
+\end{ex}
+
+If we have multiple variables, we can perform a similar computation.  
+
+\begin{ex}{Multivarialbe Algebraic Expressions}{multivariable_alg_exp}
+Consider the equations
+\begin{align*}
+    xyz&=1;\\
+    x+y&=2;\\
+    y+z&=1/2.
+\end{align*}
+The goal is to find values for $x$, $y$, and $z$ so that each equation is satisfied simultaneously.  These equations can take time to solve and can be prone to errors.  In the WA entry box, type
+
+\begin{center}
+    \begin{BVerbatim}
+    xyz=1; x+y=2; y+z=1/2
+    \end{BVerbatim}
+\end{center}
+
+and press enter.  Once the computation has completed, verify that you find the following solutions
+\begin{align*}
+    x\approx-0.253156,\quad y\approx2.25316,\quad z\approx-1.75316
+\end{align*}
+or
+\begin{align*}
+    x\approx1.87658 - 0.654667 i,\quad y\approx0.123422 + 0.654667 i, z\approx0.376578 - 0.654667 i
+\end{align*}
+or
+\begin{align*}
+    x\approx1.87658 + 0.654667 i,\quad y\approx0.123422 - 0.654667 i,\quad z\approx0.376578 + 0.654667 i.
+\end{align*}
+\end{ex}
+
+\subsection{Error Checking}
+There are some issues with the interpreting of input with WA.  For example, WA often thinks certain symbols have implicit relationships.  One case is that it tends to take $y$ and $x$ to be related in that $y(x)$ is a function of $x$.
+
+% D[f(x),{x,n}] derivative operator for wolfram alpha
+
+% matrices and vectors and stuff
+
+%\section{Geogebra}
+%
+%\section{CalcPlot3D}

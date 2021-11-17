@@ -1,0 +1,274 @@
+\ProvidesPackage{preamble}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document data
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\documentclass[12pt]{report} %report allows for chapters
+\renewcommand\thesection{\arabic{section}} % ignore the title number for sections
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[colorlinks,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+\usepackage{svg}
+
+\usepackage{color, soul, xcolor} % Colored text and highlighting, respectively
+\usepackage{tikz,tikz-cd,tikz-3dplot} % tikz
+\usetikzlibrary{angles}
+\usepackage{mathtools}
+\usepackage{answers}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{mathrsfs}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{marvosym,wasysym} %fucking smileys
+\usepackage{float}
+\usepackage{morefloats}
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usepackage{subcaption}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{theorems}
+\usepackage{fancyvrb}
+\usepackage{longtable,booktabs}
+\usepackage{stackrel}
+\usepackage{cleveref}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Shortcuts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Number systems
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\field}{\mathbb{F}}
+\newcommand{\hilbert}{\mathcal{H}}
+
+% Operators/functions
+\newcommand{\id}{\mathrm{Id}}
+\newcommand{\RE}{\mathrm{Re}}
+\newcommand{\IM}{\mathrm{Im}}
+\newcommand{\partialx}{\frac{\partial f}{\partial x}}
+\newcommand{\partialy}{\frac{\partial f}{\partial y}}
+\newcommand{\partialz}{\frac{\partial f}{\partial z}}
+\newcommand{\innprod}[2]{\left\langle #1, #2 \right\rangle}
+\newcommand{\linop}{\mathcal{L}}
+\newcommand{\unitop}{\mathcal{U}}
+\newcommand{\fourier}[1]{\mathcal{F}\left[ #1 \right]}
+\newcommand{\fourierinv}[1]{\mathcal{F}^{-1}\left[ #1 \right]}
+
+
+%Other symbols
+\newcommand{\veryshortarrow}[1][4pt]{\mathrel{%
+   \hbox{\rule[\dimexpr\fontdimen22\textfont2-.2pt\relax]{#1}{.4pt}}%
+   \mkern-4mu\hbox{\usefont{U}{lasy}{m}{n}\symbol{41}}}}
+\newcommand{\seqan}{\{a_n\}_{n=1}^\infty}
+\newcommand{\seqbn}{\{b_n\}_{n=1}^\infty}
+\newcommand{\seqcn}{\{c_n\}_{n=1}^\infty}
+
+\newcommand{\serA}{\sum_{n=1}^\infty a_n}
+\newcommand{\seqAn}{\{A_n\}_{n=1}^\infty}
+
+\newcommand{\ihat}{\boldsymbol{\hat{\i}}}
+\newcommand{\jhat}{\boldsymbol{\hat{\j}}}
+\newcommand{\khat}{\boldsymbol{\hat{k}}}
+
+\newcommand{\veca}{\boldsymbol{\vec{a}}}
+\newcommand{\vecb}{\boldsymbol{\vec{b}}}
+\newcommand{\vecc}{\boldsymbol{\vec{c}}}
+\newcommand{\xhat}{\boldsymbol{\hat{x}}}
+\newcommand{\yhat}{\boldsymbol{\hat{y}}}
+\newcommand{\zhat}{\boldsymbol{\hat{z}}}
+\newcommand{\vecv}{\boldsymbol{\boldsymbol{\vec{v}}}}
+\newcommand{\vecu}{\boldsymbol{\boldsymbol{\vec{u}}}}
+\newcommand{\vecw}{\boldsymbol{\boldsymbol{\vec{w}}}}
+\newcommand{\vhat}{\boldsymbol{\boldsymbol{\hat{v}}}}
+\newcommand{\uhat}{\boldsymbol{\boldsymbol{\hat{u}}}}
+\newcommand{\what}{\boldsymbol{\boldsymbol{\hat{w}}}}
+\newcommand{\vecr}{\boldsymbol{\vec{r}}}
+\newcommand{\vecx}{\boldsymbol{\vec{x}}}
+\newcommand{\vecxdot}{\boldsymbol{\dot{\vec{x}}}}
+\newcommand{\vecy}{\boldsymbol{\boldsymbol{\vec{y}}}}
+\newcommand{\evec}{\boldsymbol{\vec{e}}}
+\newcommand{\zerovec}{\boldsymbol{\vec{0}}}
+\newcommand{\unitvec}{\boldsymbol{\hat{n}}}
+\newcommand{\basvec}{\boldsymbol{\hat{e}}}
+\newcommand{\forcevec}{\boldsymbol{\vec{F}}}
+\newcommand{\displacement}{\boldsymbol{\vec{d}}}
+\newcommand{\matA}{[A]}
+\newcommand{\matB}{[B]}
+\newcommand{\matC}{[C]}
+\newcommand{\matT}{[T]}
+\newcommand{\colA}{\boldsymbol{\vec{A}}}
+\newcommand{\curvegamma}{\boldsymbol{\vec{\gamma}}}
+\newcommand{\tangentgamma}{\boldsymbol{\dot{\vec{\gamma}}}}
+\newcommand{\normalgamma}{\boldsymbol{\ddot{\vec{\gamma}}}}
+\newcommand{\vecfieldV}{\boldsymbol{\vec{V}}}
+\newcommand{\vecfieldU}{\boldsymbol{\vec{U}}}
+\newcommand{\grad}{\boldsymbol{\vec{\nabla}}}
+\newcommand{\partialwrt}[1]{\frac{\partial}{\partial #1}}
+\newcommand{\veclaplace}{\boldsymbol{\vec{\Delta}}}
+\newcommand{\vecfieldE}{\boldsymbol{\vec{E}}}
+\newcommand{\rhohat}{\boldsymbol{\hat{\rho}}}
+\newcommand{\rhat}{\boldsymbol{\hat{r}}}
+\newcommand{\thetahat}{\boldsymbol{\hat{\theta}}}
+\newcommand{\phihat}{\boldsymbol{\hat{\phi}}}
+\newcommand{\vecfieldT}{\boldsymbol{\vec{T}}}
+\newcommand{\vecfieldB}{\boldsymbol{\vec{B}}}
+\newcommand{\vecfieldJ}{\boldsymbol{\vec{J}}}
+\newcommand{\vecf}{\boldsymbol{\vec{f}}}
+
+\newcommand{\Span}{\mathrm{Span}}
+\newcommand{\Null}{\mathrm{Null}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\Rot}{[\mathrm{Rot}]}
+\newcommand{\REF}{[\mathrm{Ref}]}
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\Orth}{\mathrm{O}}
+\newcommand{\U}{\mathrm{U}}
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\set}{\mathcal{S}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Environments
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Equation Numbering
+\numberwithin{section}{chapter}
+\numberwithin{equation}{section}
+%\renewcommand{\theequation}{\thechapter.\thesection.\arabic{equation}}
+
+% Arrows
+
+\newcommand{\leftrarrows}{\mathrel{\raise.75ex\hbox{\oalign{%
+  $\scriptstyle\leftarrow$\cr
+  \vrule width0pt height.5ex$\hfil\scriptstyle\relbar$\cr}}}}
+\newcommand{\lrightarrows}{\mathrel{\raise.75ex\hbox{\oalign{%
+  $\scriptstyle\relbar$\hfil\cr
+  $\scriptstyle\vrule width0pt height.5ex\smash\rightarrow$\cr}}}}
+\newcommand{\Rrelbar}{\mathrel{\raise.75ex\hbox{\oalign{%
+  $\scriptstyle\relbar$\cr
+  \vrule width0pt height.5ex$\scriptstyle\relbar$}}}}
+\newcommand{\longleftrightarrows}{\leftrarrows\joinrel\Rrelbar\joinrel\lrightarrows}
+
+% Italic font
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{axiom}{Axiom}
+
+% Plain font
+\theoremstyle{definition}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{solution}{Solution}[section]
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem{question}{Question}[section]
+\newtheorem{answer}{Answer}[section]
+  
+\newtheorem{problem}{Problem}[chapter]
+\newtheorem{eExoinner}[problem]{\makebox[0pt][r]{\Exostar}Problem}
+\newcommand{\Exostar}{}
+
+\newenvironment{eExo}{\eExoinner}{\endeExoinner}
+\newenvironment{problem*}{\renewcommand\Exostar{*}\eExoinner}{\endeExoinner}
+
+
+
+% Decorated
+
+%GREEN
+\newtcbtheorem[number within=section, crefname={theorem}{theorems}]{thm}{Theorem}%
+{colback={white},arc=0pt,outer arc=0pt,colframe=csu_dark_green,fonttitle=\bfseries,breakable,enhanced, before skip=20pt plus 2pt,after skip=20pt plus 2pt,fontupper=\normalsize\itshape}{th} % Theorem
+
+\newtcbtheorem[number within=section, crefname={proposition}{propositions}]{prop}{Proposition}%
+{colback={white},arc=0pt,outer arc=0pt,colframe=csu_dark_green,fonttitle=\bfseries,breakable,enhanced, before skip=20pt plus 2pt,after skip=20pt plus 2pt,fontupper=\normalsize\itshape}{prop} % Proposition
+
+\newtcbtheorem[number within=section, crefname={cor}{corollaries}]{cor}{Corollary}%
+{colback={white},arc=0pt,outer arc=0pt,colframe=csu_dark_green,fonttitle=\bfseries,breakable,enhanced, before skip=20pt plus 2pt,after skip=20pt plus 2pt}{cor} % Corollary
+
+\newtcbtheorem[number within=section, crefname={definition}{definitions}]{df}{Definition}%
+{colback={white},arc=0pt,outer arc=0pt,,colframe=csu_dark_green,fonttitle=\bfseries,breakable,enhanced,before skip=20pt plus 2pt,after skip=20pt plus 2pt}{df} % Definition
+
+
+%GOLD
+\newtcbtheorem[number within=section, crefname={example}{examples}]{ex}{Example}%
+{colback={white},arc=0pt,outer arc=0pt,,colframe=csu_gold,fonttitle=\bfseries,breakable,enhanced, before skip=20pt plus 2pt,after skip=20pt plus 2pt}{ex} %example
+
+\newtcbtheorem[number within=section, crefname={problem}{Problems}]{prob}{Problem}%
+{colback={white},arc=0pt,outer arc=0pt,,colframe=csu_gold,fonttitle=\bfseries,breakable,enhanced,before skip=20pt plus 2pt,after skip=20pt plus 2pt}{prob} %problem
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Indexing
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{makeidx}
+
+%% Font Effects
+\newcommand{\boldgreen}[1]{\textcolor{lighter_csu_green}{\emph{\textbf{#1}}}}
+
+%% Phase line
+\newcommand*{\TickSize}{2pt}%
+
+\newcommand*{\AxisMin}{0}%
+\newcommand*{\AxisMax}{0}%
+
+\newcommand*{\DrawHorizontalPhaseLine}[4][]{%
+    % #1 = axis tick labels
+    % #2 = right arrows positions as CSV
+    % #3 = left arrow positions as CSV
+    \gdef\AxisMin{0}%
+    \gdef\AxisMax{0}%
+    \edef\MyList{#2}% Allows for #1 to be both a macro or not
+    \foreach \X in \MyList {
+        \draw  (\X,\TickSize) -- (\X,-\TickSize) node [below] {$\X$};
+        \ifnum\AxisMin>\X
+            \xdef\AxisMin{\X}%
+        \fi
+        \ifnum\AxisMax<\X
+            \xdef\AxisMax{\X}%
+        \fi
+    }
+
+    \edef\MyList{#3}% Allows for #2 to be both a macro or not
+    \foreach \X in \MyList {% Right arrows
+        \draw [->] (\X-0.1,0) -- (\X,0);
+        \ifnum\AxisMin>\X
+            \xdef\AxisMin{\X}%
+        \fi
+        \ifnum\AxisMax<\X
+            \xdef\AxisMax{\X}%
+        \fi
+    }
+
+    \edef\MyList{#4}% Allows for #3 to be both a macro or not
+    \foreach \X in \MyList {% Left arrows
+        \draw [<-] (\X-0.1,0) -- (\X,0);
+        \ifnum\AxisMin>\X
+            \xdef\AxisMin{\X}%
+        \fi
+        \ifnum\AxisMax<\X
+            \xdef\AxisMax{\X}%
+        \fi
+    }
+
+    \draw  (\AxisMin-1,0) -- (\AxisMax+1,0) node [right] {#1};
+}%

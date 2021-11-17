@@ -1,0 +1,971 @@
+    The real world is composed of geometrical objects and our models for physics, chemistry, and biology rely heavily on utilizing them.  But, how can one describe certain objects such as a sphere, a donut, or a helical curve?  We have seen these types of surfaces arise in a few ways, but we need something that provides us a more pragmatic approach to constructing such objects. The two means we will look at in this chapter are that of \boldgreen{implicit} and \boldgreen{explicit parameterizations}. First and foremost, a \boldgreen{parameterization} is a means in which one can describe a geometrical object via variables.  For example, one could describe the unit sphere as the level set to $x^2+y^2+z^2=1$ or one could describe a parabaloid via the graph of the function $z=x^2+y^2$. The former is an example of an implicit paramaterization while the latter is explicit. Let's briefly discuss the differences between these approaches.
+    
+    Let us now consider surfaces in $\R^3$ as the prototypical example for a need for providing a parameterization.  To be a bit more precise, a surface is a 2-dimensional membrane that lives inside of space.  It is not a bad idea to picture a sphere, a donut, or a wiggly sheet of rubber. In general, an implicit parameterization of a surface is given by a list of equations of functions of more than two variables.  For example, if we consider
+    \[
+    f(x,y,z) = x^2+y^2+z^2,
+    \]
+    then we take
+    \[
+    f(x,y,z) = 1,
+    \]
+    this gives us a spherical surface.  Notice how $f(x,y,z)$ depends on three variables, and setting this equation equal to a constant gives us a surface.  There is a far more general approach where we may consider a list of functions $f_1(x_1,x_2,\dots,x_n)$, $f_2(x_1,x_2,\dots,x_n)$, $\dots$, $f_m(x_1,x_2,\dots,x_n)$ where we set each of these functions equal to a constant. For example,
+    \begin{align*}
+        f_1(x_1,x_2,\dots,x_n) &= c_1\\
+        f_2(x_1,x_2,\dots,x_n) &= c_2\\
+        &\vdots\\
+        f_m(x_1,x_2,\dots,x_n) &= c_m.
+    \end{align*}
+    However, we will not need such abstraction.
+    
+    In the explicit case, we provide a different perspective.  Namely, we seek to describe the two dimensional membrane using two variables $u$ and $v$, and we take the functions $x(u,v)$, $y(u,v)$, and $z(u,v)$ to describe the points in space that live on this surface.  That is, if $u\in [u_0,u_1]$ and $v\in [v_0,v_1]$, then a surface can be described by the set of points
+    \[
+    (x(u,v),y(u,v),z(u,v)).
+    \]
+    This description is a bit more abstract than we wish.  For us, we will take surfaces to be broken up into graphs.  For example, we could take the surface given by the points
+    \[
+    (x,y,f(x,y)),
+    \]
+    where $f(x,y)=x^2+y^2$ to receive the parabaloid surface.  Notice that here we have swapped $u$ and $v$ for $x$ and $y$ since we are able to construct this as a graph. Graphs are simply the nicest examples of explicit surfaces.
+
+
+\section{Implicit  surfaces}
+                In the planar case, we would often have to specify a set of points by providing an equation
+                \[
+                x^2+y^2=1.
+                \]
+                The tuples of points $(x,y)$ which satisfy the above equations define a nice set of points in the plane that we know as the unit circle.  
+                
+                \begin{exercise}
+                	Verify that the set of points $(x,y)$ is indeed the unit circle. \emph{Hint: you can take the points to be $(\cos(\theta),\sin(\theta))$ for $\theta \in [0,2\pi)$ and notice that these points all live on the circle. Is it possible to find other points?}
+                 \end{exercise}
+                
+                This concept should not be totally foreign to us as we previously worked with level sets of scalar fields.  The above example is nothing but the 1 level set to the function $f(x,y)=x^2+y^2$.  In higher dimensions, we can do the same in order to visualize functions of the form $f\colon \R^3\to \R$ written as $f(x,y,z)$.  If we pick some constant $c$ and write
+                \[
+                f(x,y,z)=c
+                \]
+                then we will get level surfaces for the function $f(x,y,z)$.  We should also remark that surfaces are common objects in space, and we would like a means of describing them anyways. We refer to this description of level surfaces as \boldgreen{implicit}. Some even refer to these surfaces as \boldgreen{implicit surfaces}.  Later, we will also consider explicit parameterizations. 
+                
+                \begin{ex}{A Sphere as a Level Surface}{sphere_lev_surf}
+                We can consider the following function
+                \[
+                f(x,y,z)=x^2+y^2+z^2.
+                \]
+                If we take the one level set, that is the points $(x,y,z)$ that satisfy
+                \[
+                x^2+y^2+z^2=1
+                \]
+                then we get the unit \boldgreen{sphere}.  These are the set of points that are all a distance one from the origin.  
+              	\begin{figure}[H]
+              		\centering
+              		\includegraphics[width=.8\textwidth]{Figures_Part_6/Sphere.png}
+              		\caption{The unit sphere in $\R^3$ as the solution to $x^2+y^2+z^2=1$.}
+              	\end{figure}
+              	
+              	If we change the constant from $c=1$, the surface will also change.  That is, if we consider the equation
+              	\[
+              	f(x,y,z)=c,
+              	\]
+              	then each $c$ describes a different set of points.  Let's investigate and see what our options are.
+              	
+              	It's quite clear that $c\geq 0$ since a $c$ value less than zero will have no real solutions.  One should make sure this is clear.  For the value $c=0$, we have
+              	\[
+              	x^2+y^2+z^2=0,
+              	\]
+              	which has a single solution of $(x,y,z)=(0,0,0)$.  Thus, the level set for $c=0$ is not a surface but a single point.  For values $c>0$, we will define a sphere with radius $\sqrt{c}$.  Note that the distance from the origin to any point in the plane $(x,y,z)$ is defined by
+              	\[
+              	\sqrt{x^2+y^2+z^2},
+              	\]
+              	and so this description of the sphere is capturing the distance from the origin to a point on the sphere.  Calling this distance 
+              	\[
+              	r=\sqrt{x^2+y^2+z^2},
+              	\]
+              	we have that
+              	\[
+              	r^2 = c ~ \implies~ r = \sqrt{c}.
+              	\]
+                \end{ex}
+                
+                The sphere will be a go-to example of an implicit surface.  The function that describes the sphere behaves rather nicely and the sphere also provides a great visualization.  Later on, we will cover a new system of coordinates in $\R^3$ that is based upon the sphere as well.
+                
+                One may wonder what happens at the origin in the previous example.  To see the issue, we can consider the gradient of the scalar field that defined the surface, $f(x,y,z) = x^2+y^2+z^2$.  Taking the gradient yields,
+                \[
+                \grad f = \begin{pmatrix} 2x \\ 2y \\ 2z \end{pmatrix}.
+                \]
+                If we evaluate the gradient at the origin, we can note
+                \[
+                \grad f(0,0,0) = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix},
+                \]
+                which is the zero vector!  This leads us to the following.
+                
+                \begin{thm}{Implicit Surfaces iff $\grad f \neq 0$}{implicit_surfaces_gradient}
+                	Given a scalar field $f(x,y,z)$, the equation $f(x,y,z)=c$ defines an implicit surface if the gradient $\grad f$ on the level set of points ($\{(x,y,z) \in \R^3 ~\vert~ f(x,y,z)=c\}$) does not vanish. Thus, if we take a level set and consider the points where the gradient is nonzero, we have a level surface.
+                \end{thm}
+                
+                \begin{ex}{The Hyperboloids}{hyperboloids}
+                If we change the function above just slightly, we will receive a whole family of surfaces given by the level sets of
+                \[
+                f(x,y,z)=x^2+y^2-z^2.
+                \]
+                Again, we will have to consider what values for $c$ define level surfaces. 
+                \begin{itemize}
+                    \item If we take $c=0$ and set
+                    \[
+                    x^2+y^2-z^2=0.
+                    \]
+                    then we find the 0 level surface. In this case, we can do a bit of work to find
+                    \[
+                    z=\pm \sqrt{x^2+y^2}.
+                    \]
+                    Notice, if we pick any value for $z$, that we get a circle at that level!  When $z=0$, we get a single point.  It turns out that we get the \boldgreen{(double) cone} surface which looks like
+                    \begin{figure}[H]hy
+                        \centering
+                     \includegraphics[width=.8\textwidth]{Figures_Part_6/cone_surface.png}
+                     \caption{(Double) cone surface given by the level set $c=0$.}
+                    \end{figure}
+                    At the origin, $(x,y,z)=(0,0,0)$, we can see that our surface degenerates to a single point. Again, one can see that the gradient at that point $\grad f(0,0,0) = \zerovec$.
+                    
+                    One should take some time to work out visualizing this both with software like GeoGebra as well as by hand.
+                    
+                    \item If we take $c=1$ and set
+                    \[
+                    x^2+y^2-z^2=1
+                    \]
+                    we get the \emph{hyperboloid of one sheet}.  This looks like
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=.8\textwidth]{Figures_Part_6/hyperboloid_1_sheet.png}
+                        \caption{Hyperboloid of 1-sheet defined by $c=0.1$.}
+                    \end{figure}
+                    
+                    \item If we take $c<0$ and set
+                    \[
+                    x^2+y^2-z^2=c
+                    \]
+                    we get a \boldgreen{hyperboloid of two sheets}.  This looks like
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=.8\textwidth]{Figures_Part_6/hyperboloid_2_sheet.png}
+                        \caption{Hyperboloid of 2-sheets defined by $c=-0.1$.}
+                    \end{figure}
+                \end{itemize}
+                \end{ex}
+                
+                \begin{ex}{The Torus}{torus}
+                For this example, I will choose specific nice numbers, but this is a yet another case of a level surface.  Take
+                \[
+                \left(3-\sqrt{x^2+y^2}\right)^2+z^2=\frac{3}{2}.
+                \]
+                This gives us the \emph{torus} with inner radius (the radius from the center of the donut hole to the center of the tube) $3=R$ and tube radius $\frac{3}{2}=r$. This looks like
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=.8\textwidth]{Figures_Part_6/torus.png}
+                \end{figure}
+                \end{ex}
+                
+                
+                 \subsection{Normal Vectors to Implicit Surfaces}
+                 
+                 Let $f(x,y,z)$ be a scalar field.  Then, recall that the gradient of this scalar function $\grad f$ points perpendicularly to the level sets of the scalar field.  Thus, if we have a level set of points for $f(x,y,z)=c$ and $\grad f \neq \zerovec$ at any of these points, then we have a means of describing the vector $\unitvec$ that is normal to the surface at each point.  Specifically, if the point $(x_0,y_0,z_0)$ are on the implicitly defined surface $f(x,y,z)=c$, then the normal vector at that point is given by
+                 \[
+                 \unitvec(x_0,y_0,z_0) = \frac{\grad f(x_0,y_0,z_0)}{|\grad f(x_0,y_0,z_0)|}.
+                 \]
+                 
+                 Previously, we wished to compute flux integrals of vector fields through surfaces.  But, we took the simplest cases of surfaces (specifically where the surfaces were flat and had a constant normal vector).  Now, we could conceivably compute flux integrals across implicitly defined surfaces!
+                 
+                 One more step must be taken into account.  We must know how the the implicit function ``stretches" out our Cartesian coordinates.  Say, for example, we can solve for $z$ in our equation for the level surface $\Sigma$. That is, if we have $f(x,y,z)=c$, then we can solve for $z$ in terms of $x$ and $y$ to find $z=g(x,y)$.  Then, the area is stretched by a factor
+                 \[
+                 d\Sigma = \sqrt{ \left(\frac{\partial g}{\partial x}\right)^2 + \left(\frac{\partial g}{\partial y}\right)^2 +1 } dxdy.
+                 \]
+                 We will cover this in more depth later when we consider explicit surfaces.
+                 
+                 \begin{ex}{Surface Normal to Unit Sphere}{surface_normal_to_sphere}
+                 	Consider the unit sphere defined implicitly by the level set to
+                 	\[
+                 	f(x,y,z)=x^2+y^2+z^2 = 1.
+                 	\]
+                 	Then, we can compute the surface normal by taking
+                 	\[
+                 	\grad f = \begin{pmatrix} 2x \\ 2y \\ 2z \end{pmatrix}.
+                 	\]
+                 	Then, we also have that
+                 	\[
+                 	\left| \grad f \right| = \sqrt{4x^2+4y^2+4z^2} = 2 \sqrt{x^2+y^2+z^2}.
+                 	\]
+                 	Note that we are requiring that $x^2+y^2+z^1=1$ by definition, and thus
+                 	\[
+                 	\left| \grad f\right| = 2,
+                 	\]
+                 	along the unit sphere. Hence the surface normal to the unit sphere is given by
+                 	\[
+                 	\unitvec = \frac{\grad f}{\left| \grad f \right|} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}.
+                 	\]
+                 	Thus, the surface normal to the sphere points in the same direction as the point on the sphere does!
+                 \end{ex}
+                 
+                 \begin{exercise}
+                 	Plot the normal vectors to the unit sphere as well as the sphere.
+                 \end{exercise}
+                 
+                 \subsection{Implicit Function Theorem}
+                 
+                 There is a great relationship between implicit surfaces and graphs of functions.  In general, graphs of functions are provide the nicest possible description of a surface.  Thus, one would appreciate the ability to be able to work with graphs while still defining a surface implicitly.  
+                 
+                 \begin{thm}{Implicit Function Theorem}
+                 	Let $f(x,y,z)=c$ define an implicit surface.  Then where $\frac{\partial f}{\partial z}\neq 0$, we can describe the surface as the (possibly many) graph of functions $z=g(x,y)$. That is, the set of points $(x,y,g(x,y))$ describes a portion of the implicit surface.  
+                 \end{thm}
+                 
+                 \begin{remark}
+                 	There is in fact nothing special about the choice of graphing a function over the $xy$-plane.  One could instead have taken $\frac{\partial f}{\partial x} \neq 0$ and produced a graph $(g(y,z),y,z)$ instead! Given that, one could graph the surface over any plane in $\R^3$.
+                 \end{remark}	
+                 
+                 This would not be a complete treatment if we did not provide an example for this.  So let us work through this description for the unit sphere.
+                 
+                 \begin{ex}{The Sphere as Two Graphs}{sphere_graphs}
+                 	Consider the unit sphere defined by
+                 	\[
+                 	f(x,y,z) = x^2+y^2+z^2 = 1.
+                 	\]
+                 	Then we have
+                 	\[
+                 	\frac{\partial f}{\partial z} = 2z,
+                 	\]
+                 	and hence as long as $z\neq 0$, we can build the unit sphere via graphs.  Specifically, we have
+                 	\[
+                 	z = \pm \sqrt{1-x^2-y^2}.
+                 	\]
+                 	Taking the graph $(x,y,\sqrt{1-x^2-y^2})$ yields the following.
+                 	\begin{figure}[H]
+                 		\centering
+                 		\includegraphics[width=.8\textwidth]{Figures_Part_6/hemisphere.png}
+                 		\caption{The northern hemisphere given by the graph $(x,y,\sqrt{1-x^2-y^2})$.}
+                 	\end{figure}
+                 \end{ex}
+                 
+                 \begin{exercise}
+                 	Graph the other portion of the sphere by plotting $(x,y,-\sqrt{1-x^2-y^2})$ to see that the combination of these two graphs covers the whole sphere.
+                 \end{exercise}
+                 
+                 \section{Surfaces as Graphs}
+                 
+                 Implicit surfaces provided a concise description for a surface as a level set of some scalar field.  One could then compute the surface normal.   However, to do further computations, it tends to be easiest to use an explicit description of a surface.  Luckily, the implicit function theorem provides us a means of construction a surface as a graph over the $xy$-plane (or really any other plane in $\R^3$).  So, it is worth continuing working with graphs of functions.
+                 
+                 Suppose that we have a function $g(x,y)$ and we construct the surface $\Sigma$ given by the graph $(x,y,g(x,y))$.  One would like to construct the surface normal $\unitvec$ and compute the \boldgreen{area form} $d\Sigma$. Up until now, we have had no trouble defining $d\Sigma$ as our surfaces have been rather nice. 
+                 
+                 Our methodology for constructing these quantities will be to work very locally on a surface.  In other words, it is helpful to know what a surface looks like up very close.  In this case, the surface is best approximated by a plane.  This is analogous to how you can approximate functions of a single variable by a line.
+                                        
+                                        \begin{exercise}
+                                        Compute the tangent line to $f(x)=2x^2+5$ at the point $x_0=3$.
+                                        \end{exercise}
+                                        
+                                        \subsection{Equation for a Plane}
+                                        
+                                        We haven't worked much with planes in space yet, but we have seen surfaces.  In some sense, planes are the easiest surfaces.  They are, after all, linear objects. 
+                                        
+                                        \begin{ex}{Plane and Normal}{plane_normal}
+                                        The implicit equation for a plane is given by
+                                        \[
+                                        ax+by+cz+ d = 0.
+                                        \]
+                                        Notice that this is a linear equation.
+                                        
+                                        Then the surface normal to the plane is given by 
+                                        \[
+                                        \unitvec = \frac{\grad f}{\left| \grad f\right|} = \frac{1}{\sqrt{a^2+b^2+c^2}}\begin{pmatrix} a \\ b \\ c\end{pmatrix}.
+                                        \]
+                                        We can see a diagram of this here.
+                                        \begin{figure}[H]
+                                            \centering
+                                            \includegraphics[width=.4\textwidth]{Figures_Part_6/plane_n.png}
+                                        \end{figure}
+                                        \end{ex}
+                                        
+                                        
+                                        \subsection{Tangent Planes and Surface Normals}
+                                        
+                                        Now, if we are given a surface (defined as a level surface or as the graph of a function), we can compute an approximation at a point called the \boldgreen{tangent plane}. The means in which we compute this comes from computing the tangent vectors to curves along the surface.  If we have $\Sigma$ given by $(x,y,g(x,y))$, then we can create a curve along the surface aligned in the $x$-direction by letting $y$ be constant.  So, choose $y=k$ and we then have a curve given by the points 
+                                        \[
+                                        \curvegamma_1(x) = \begin{pmatrix} x \\ k \\ g(x,k) \end{pmatrix}.
+                                        \] 
+                                        Then, the tangent vector is given by
+                                        \[
+                                        \frac{d}{dx} \curvegamma_1(x) = \begin{pmatrix} 1 \\ 0 \\ \frac{\partial g}{\partial x} (x,k) \end{pmatrix} = \tangentgamma_1.
+                                        \]
+                                        In other words, we can simply compute a tangent vector in the $x$-direction on the graph by taking
+                                        \[
+                                        \frac{\partial}{\partial x} \begin{pmatrix} x \\ y \\ g(x,y) \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \\ \frac{\partial g}{\partial x} \end{pmatrix}.
+                                        \]
+                                        Similarly, we can compute the tangent vector in the $y$-direction by
+                                        \[
+                                        \frac{\partial}{\partial y} \begin{pmatrix} x \\ y \\ g(x,y) \end{pmatrix} = \begin{pmatrix} 0 \\ 1 \\ \frac{\partial g}{\partial y} \end{pmatrix}.
+                                        \]
+                                        This gives us a means of computing the tangent plane in two ways. First, we have that the equation for the tangent plane to the graph of a function $g(x,y)$ at the point $(x_0,y_0,g(x_0,y_0))$ is given by
+                                        \[
+                                        z-g(x_0,y_0)=\frac{\partial g}{\partial x}(x_0,y_0)(x-x_0)+\frac{\partial g}{\partial y}(x_0,y_0)(y-y_0).
+                                        \]
+                                        Notice how this equation mimics the equation for a tangent line.  Similarly, we can compute the unit vector normal to the tangent plane by taking
+                                        \[
+                                        \unitvec = \frac{\tangentgamma_1 \times \tangentgamma_2}{\left| \tangentgamma_1 \times \tangentgamma_2\right|} = \frac{1}{\sqrt{1+\left(\frac{\partial g}{\partial x}\right)^2 + \left(\frac{\partial g}{\partial y}\right)^2}} \begin{pmatrix} -\frac{\partial g}{\partial x} \\ -\frac{\partial g}{\partial y} \\ 1 \end{pmatrix}.
+                                        \]
+                                     	It then follows that the vector normal to the tangent plane is indeed the surface normal at that point.  Thus, we have a nearly full description of the surface. Also, notice the denominator is very much related to the area form $d\Sigma$.  We'll work on computing this quantity next.
+                                                                                
+                                        \begin{ex}{Tangent Plane and Normal to a Paraboloid}
+                                        Consider the function 
+                                        \[
+                                        f(x,y)=-x^2-y^2.
+                                        \]
+                                        Then the graph of the function is given by plotting the points
+                                        \[
+                                        (x,y,f(x,y)).
+                                        \]
+                                        We compute the tangent plane by computing partial derivatives. We take
+                                        \begin{align*}
+                                        \frac{\partial f}{\partial x} &= -2x\\    
+                                        \frac{\partial f}{\partial y} &= -2y.
+                                        \end{align*}
+                                        Then the equation for a tangent plane at the point $(x_0,y_0,f(x_0,y_0))$ is given by
+                                        \[
+                                        z-f(x_0,y_0)=\partialx (x-x_0)+\partialy (y-y_0).
+                                        \]
+                                        So in our case, we have
+                                        \[
+                                        z-(-x_0^2-y_0^2)=-2x_0(x-x_0)-2y_0(y-y_0).
+                                        \]
+                                        Pictorially, it looks as follows (letting $p=(x_0,y_0,f(x_0,y_0))$):
+                                        \begin{figure}[H]
+                                            \centering
+                                            \includegraphics[width=.4\textwidth]{Figures_Part_6/tangent-planes-1.png}
+                                        \end{figure}
+                                        To compute the surface normal, we compute
+                                        \[
+                                        \tangentgamma_1 = \begin{pmatrix} 1 \\ 0 \\ -2x \end{pmatrix} \qquad \textrm{and} \qquad \tangentgamma_2 = \begin{pmatrix} 0 \\ 1 \\ -2y \end{pmatrix}.
+                                        \]
+                                        Computing the cross product yields,
+                                        \[
+                                        \begin{pmatrix} 2x \\ 2y \\ 1 \end{pmatrix},
+                                        \]
+                                        and we can normalize this vector by first computing
+                                        \[
+                                        \sqrt{1+(-2x)^2+(-2y)^2} = \sqrt{1-4x^2-4y^2}.
+                                        \]
+                                        Thus, our surface normal is given by
+                                        \[
+                                        \unitvec = \frac{1}{\sqrt{1-4x^2-4y^2}} \begin{pmatrix} 2x \\ 2y \\ 1 \end{pmatrix}.
+                                        \]
+                                        \end{ex}
+                                      
+                                      
+                                      \section{Area Form and Integration}
+                                      
+                                      Let us begin this section by computing the area of the unit disk in the plane.  Specifically, this is the set of points inside the unit circle given by the equation $x^2+y^2\leq 1$.  How should we compute this area?
+                                      
+                                      \begin{ex}{Area of Unit Disk}{area_unit_disk}
+                                      	Let the surface $\Sigma$ be the unit disk given by the set of points in the plane $x^2+y^2\leq 1$.  We know that the area should be $\pi$, and so if we integrate
+                                      	\[
+                                      	\iint_\Sigma d\Sigma, 
+                                      	\]
+                                      	we should find this to be equal to the area of the unit disk.  In this case, since our surface is flat and in the $xy$-plane, we have that $d\Sigma = dxdy$, and so we just need to find our bounds of integration.  If we solve for $x$ in the given equation, we have
+                                      	\[
+                                      	\sqrt{x^2} \leq \sqrt{1-y^2},
+                                      	\]
+                                      	and note that $\sqrt{x^2}=|x|$ and thus this amounts to
+                                      	\[
+                                      	-\sqrt{1-y^2}\leq x \leq \sqrt{1-y^2}.
+                                      	\]
+                                      	\textcolor{red}{insert figure}
+                                      	So, as $y$ varies from $-1$ to $1$, this describes how $x$ should vary. So, we can write our integral as
+                                      	\begin{align*}
+                                      	\iint_\Sigma d\Sigma = \int_{-1}^1 \int_{-\sqrt{1-y^2}}^{\sqrt{1-y^2}} dxdy.
+                                      	\end{align*}
+                                      	We can compute this integral in the standard way 
+                                      	\begin{align*}
+                                      	\int_{-1}^1 \int{-\sqrt{1-y^2}}^{\sqrt{1-y^2}} dxdy &= \int_{-1}^1 2\sqrt{1-y^2}dy\\
+                                      	&= \pi.
+                                      	\end{align*}
+                                      	This is the correct area of the unit disk.
+                                      \end{ex}
+                                      
+                                      \begin{exercise}
+                                      Fill in the gaps in the integral for the previous example.
+                                      \end{exercise}
+                                      
+                                      Lastly, we need to describe the area form $d\Sigma$.  The idea of $d\Sigma$ is to capture the ``stretching" that occurs when we graph a function.  Geometrically, what we are doing when we take the graph of a function is we are taking a region in the plane, and applying a function to this region that lifts the area up and stretches it into the desired surface.  For example, if we take the unit disk in the plane given by the set of points $(x,y)$ satisfying $x^2+y^2\leq 1$.  Then, we can create the northern hemisphere surface by taking the graph $(x,y,\sqrt{1-x^2-y^2})$.  Through this process, the unit disk is transformed into the northern hemisphere.  One can note that the area of the unit disk is $\pi$ and the area of the northern hemisphere of the unit sphere is $2\pi$.  So, it must be that this act of graphing deforms area! 
+                                      
+                                      We want to know how the area is deformed at every single point on our surface, and so we need a way to compute this.  Recall that the cross product of two vectors in $\R^3$ gives us the area of the parallelogram defined by the two vectors.  Specifically, if we have $\vecu,\vecv \in \R^3$, then the area of the parallelogram is given by $A=|\vecu\times \vecv|$.  Thinking along these lines, if we can compute an infinitesimal parallelogram on our surface, we can compute what the area is.  Specifically, what we will do is take an infinitesimal movement along our surface $x$-direction and $y$-direction, and see what the area given by these infinitesimal vectors will be.  In other words, we want to compute an infinitesimal version of
+                                      \[
+                                      |\tangentgamma_1 \times \tangentgamma_2|,
+                                      \]
+                                      where $\tangentgamma_1$ and $\tangentgamma_2$ are tangent vectors at the point of interest.  Recall that
+                                      \[
+                                      \tangentgamma_1 = \begin{pmatrix} 1 \\ 0 \\ \frac{\partial g}{\partial x} \end{pmatrix}  \qquad \textrm{and} \qquad  \tangentgamma_2 = \begin{pmatrix} 0 \\ 1 \\ \frac{\partial g}{\partial y} \end{pmatrix}.
+                                      \]
+                                      We can make these of infinitesimal lengths by taking the $x$-coordinate to be the infinitesimal $dx$, the $y$-coordinate to $dy$, and the $z$-coordinate to be $dz$.  Hence, we want to compute
+                                      \[
+                                      \left| \begin{pmatrix} dx \\ 0 \\ dz \end{pmatrix} \times \begin{pmatrix} 0 \\ dy \\ dz \end{pmatrix} \right|. 
+                                      \]
+                                      However, we can note that $z=g(x,y)$ is a function. Thus, we can write $dz$ in terms of $dx$ and $dy$.  Specifically, we can compute the \boldgreen{differential} 
+                                      \[
+                                      dz = \frac{\partial g}{\partial x}dx + \frac{\partial g}{\partial y}dy.
+                                      \]
+                                      Let us pause briefly to define this.
+                                      
+                                      \begin{df}{Differential of a Scalar Field}{differential}
+                                      	Given a scalar field $f(x,y,z)$, the \emph{differential} $df$ is given by
+                                      	\[
+                                      	df = \frac{\partial f}{\partial x}dx + \partialy dy + \partialz dz.
+                                      	\]
+                                      \end{df}
+                                      
+                                     Returning to our work before, we were wishing to compute
+                                     \[
+                                     \left| \begin{pmatrix} dx \\ 0 \\  \frac{\partial g}{\partial x}dx + \frac{\partial g}{\partial y}dy \end{pmatrix} \times \begin{pmatrix} 0 \\ dy \\  \frac{\partial g}{\partial x}dx + \frac{\partial g}{\partial y}dy \end{pmatrix}\right|.
+                                     \]
+                                     Computing this cross product yields
+                                     \[
+                                     \left| \begin{pmatrix} -\frac{\partial g}{\partial x} dydz \\ \frac{\partial g}{\partial y}dxdz \\ dxdy \end{pmatrix} \right|.
+                                     \]
+                                     Let us compute further,
+                                    \begin{align*}
+                                     \begin{pmatrix} -\frac{\partial g}{\partial x} dydz \\ \frac{\partial g}{\partial y}dxdz \\ dxdy \end{pmatrix} &= \begin{pmatrix} -\frac{\partial g}{\partial x}dxdy - \frac{\partial g}{\partial y} dy^2 \\ \frac{\partial g}{\partial x}dx^2+\frac{\partial g}{\partial y} dxdy \\ dxdy \end{pmatrix}.
+                                    \end{align*}
+                                    Now, if we are trying to compute area, then the area generated by $dx^2$ is 0 since no area is contained in this infinitesimal parallelogram. Likewise $dy^2=0$ as well. Hence, our result is
+                                    \[
+                                    \begin{pmatrix} -\frac{\partial g}{\partial x} dxdy \\ \frac{\partial g}{\partial y} dxdy \\ dxdy \end{pmatrix}.
+                                    \]
+                                    Then, computing the length of this vector yields
+                                     \begin{align*}
+                                     \left| \begin{pmatrix} -\frac{\partial g}{\partial x} dxdy \\ \frac{\partial g}{\partial y} dxdy \\ dxdy \end{pmatrix}\right| &= \sqrt{ \left( \frac{\partial g}{\partial x}  \right)^2 (dxdy)^2 + \left( \frac{\partial g}{\partial y} \right) (dxdy)^2 + (dxdy)^2}\\
+                                     &= \sqrt{\left(\frac{\partial g}{\partial x} \right)^2 + \left( \frac{\partial g}{\partial x}  \right)^2 +1 } dxdy.
+                					\end{align*}
+                					Thus, after this tedious computation, we have that for a surface defined by a graph 
+                					\[
+                					d\Sigma = \sqrt{\left(\frac{\partial g}{\partial x} \right)^2 + \left( \frac{\partial g}{\partial x}  \right)^2 +1 } dxdy.
+                					\]
+                                     
+                                     \begin{ex}{Area form on the Northern Hemisphere}{area_form_hemisphere}
+                                     	Consider the graph of the northern hemisphere given by 
+                                     	\[
+                                     	(x,y,\sqrt{1-x^2-y^2}),
+                                     	\]
+                                     	for $x$ and $y$ values satisfying $x^2+y^2\leq 1$.  Letting $g(x,y)=\sqrt{1-x^2-y^2}$, we have that
+                                     	\[
+                                     	\frac{\partial g}{\partial x} = -\frac{x}{\sqrt{1-x^2-y^2}} \qquad \textrm{and} \qquad \frac{\partial g}{\partial y} = -\frac{y}{\sqrt{1-x^2-y^2}}.
+                                     	\]
+                                     	Then we have
+                                     	\begin{align*}
+	                                     	d\Sigma = \sqrt{\left(\frac{\partial g}{\partial x}\right)^2 + \left(\frac{\partial g}{\partial y}\right)^2 + 1 }dxdy\\
+	                                     	&=\sqrt{\frac{1}{1-x^2-y^2}}dxdy.
+                                     	\end{align*}
+                                     	If we have computed this correctly, then we should have that the surface area of the northern hemisphere is given by
+                                     	\[
+                                     	\iint_\Sigma d\Sigma.
+                                     	\]
+                                     	Now, we require that $x^2+y^2\leq 1$, and we can find
+                                     	\[
+                                     	\sqrt{x^2}\leq \sqrt{1-y^2},
+                                     	\]
+                                     	which means that
+                                     	\[
+                                     	-\sqrt{1-y^2}\leq x \leq \sqrt{1-y^2},
+                                     	\]
+                                     	as $y$ ranges from $-1$ to $1$.  Hence, we have that
+                                     	\[
+                                     	\iint_\Sigma d\Sigma = \int_{-1}^1 \int_{-\sqrt{1-y^2}}^{\sqrt{1-y^2}} \sqrt{\frac{1}{1-x^2-y^2}}dxdy = 2\pi,
+                                     	\]
+                                     	which is indeed the area of the northern hemisphere.
+                                     \end{ex}
+                                     
+                                     \begin{remark}
+                                     	The above integral is rather hard to compute in Cartesian coordinates.  Thus, we will be motivated to choose a different way of computing that integral to simplify this problem.
+                                     \end{remark}
+                                     
+                                     Now, if we are solely integrating along a surface defined by a graph, then notice that we have the following nice relationship.  We have that 
+                                     \begin{align*}
+                                     \unitvec d\Sigma &= \frac{\tangentgamma_1\times \tangentgamma_2}{\left|\tangentgamma_1 \times \tangentgamma_2\right|} \left|\tangentgamma_1 \times \tangentgamma_2 \right| dxdy\\
+                                     &= \left(\tangentgamma_1 \times \tangentgamma_2\right)dxdy\\
+                                     &= \begin{pmatrix} -\frac{\partial g}{\partial x} \\ -\frac{\partial g}{\partial y} \\ 1 \end{pmatrix} dx dy.
+                                     \end{align*}
+                                      Putting this together with the previous section, we can compute a nice example.  
+                                     
+                                   	\begin{ex}{Flux Through Northern Hemisphere}{flux_through_northern_hemisphere}
+                                   		Consider the vector field
+                                   		\[
+                                   		\vecfieldV(x,y,z) = \begin{pmatrix}  x\\ y \\ z \end{pmatrix},
+                                   		\]
+                                   		and the graph of the northern hemisphere surface $\Sigma$ given by $(x,y,g(x,y))$ where 
+                                   		\[
+                                   		g(x,y) = \sqrt{1-x^2-y^2}.
+                                   		\]
+                                   		We want to integrate
+                                   		\[
+                                   		\iint_\Sigma \vecfieldV \cdot \unitvec d\Sigma.
+                                   		\]
+                                   		Then, we have computed the normal vector to the whole unit sphere to be
+                                   		\[
+                                   		\unitvec = \begin{pmatrix} x \\ y \\ z \end{pmatrix}
+                                   		\]
+                                   		as well as the area form
+                                   		\[
+                                   		d\Sigma = \sqrt{\frac{1}{1-x^2-y^2}}dxdy.
+                                   		\]
+                                   		Along this surface.  Thus, we have
+                                   		\begin{align*}
+                                   			\iint_\Sigma \vecfieldV \cdot \unitvec d\Sigma &= \int_{-1}^1 \int_{-\sqrt{1-y^2}}^{\sqrt{1-y^2}} \begin{pmatrix} x \\ y \\ z \end{pmatrix} \cdot \begin{pmatrix} x \\ y \\ z \end{pmatrix} \sqrt{\frac{1}{1-x^2-y^2}}dxdy\\
+                                   			&= \int_{-\sqrt{1-y^2}}^{\sqrt{1-y^2}} (x^2+y^2+z^2) \sqrt{\frac{1}{1-x^2-y^2}}dxdy.
+                                   		\end{align*}
+                                   		Note that along the unit sphere we have that $x^2+y^2+z^2=1$, and thus our integral reduces to
+                                   		\[
+                                   		\iint_\Sigma \vecfieldV \cdot \unitvec d\Sigma =  \int_{-\sqrt{1-y^2}}^{\sqrt{1-y^2}} \sqrt{\frac{1}{1-x^2-y^2}}dxdy.
+                                   		\]                                   	
+                                   		To evaluate this integral, we will learn to use different coordinates!
+                                   	\end{ex}           
+                                   	
+                                   	In summary, if a surface is given as a graph, we have all the tools to integrate.  One should then revisit the idea of integrating over a implicit surface. Notice in that case, we can define the surface using multiple graphs, and so this reduces to integrating along each necessary graph.                        
+                                        
+%                                        \begin{ex}{Flux Through Sphere}{flux_through_sphere}
+%                                                         Consider the vector field 
+%                                                         \[
+%                                                         \vecfieldV(x,y,z) = \begin{pmatrix} x \\ y \\ z \end{pmatrix}
+%                                                         \]
+%                                                          and the unit sphere surface $\Sigma$ given by 
+%                                                          \[
+%                                                          f(x,y,z)=x^2+y^2+z^2=1.
+%                                                          \]  
+%                                                          Then, we wish to compute the following integral
+%                                                          \[
+%                                                          \iint_\Sigma \vecfieldV \cdot \unitvec d\Sigma.
+%                                                          \]
+%                                                          First, note that we have that 
+%                                                          \[
+%                                                          \unitvec = \frac{\grad f}{|\grad f|} = \frac{1}{\sqrt{4x^2+4y^2+4z^2}} \begin{pmatrix} 2x \\ 2y \\ 2z \end{pmatrix}.
+%                                                          \]
+%                                                          Then, since we are on the unit sphere we have $x^2+y^2+z^2=1$, and thus
+%                                                          \[
+%                                                          \unitvec = \begin{pmatrix} x \\ y \\ z \end{pmatrix},
+%                                                          \]
+%                                                          for any point on the unit sphere.  Now, we can solve for $z$ in the above equation to find
+%                                                          \[
+%                                                          z = \pm \sqrt{1-x^2-y^2} = g(x,y),
+%                                                          \]
+%                                                          and so our integral will split up into the integral over two graphs of functions (which we know how to do).  Then, we have that
+%                                                          \begin{align*}
+%                                                          d\Sigma &= \sqrt{ \left(\frac{\partial g}{\partial x}\right)^2 + \left(\frac{\partial g}{\partial y}\right)^2 +1 } dxdy\\
+%                                                          &= \sqrt{\frac{x^2}{1-x^2-y^2}+\frac{y^2}{1-x^2-y^2}+1}dxdy\\
+%                                                          &= \sqrt{\frac{1}{1-x^2-y^2}}dxdy
+%                                                          \end{align*}
+%                                                          
+%                                                          That is, we have the integral over the northern hemisphere
+%                                                          \begin{align*}
+%                                                          \int_{-1}^1 \int_{-1}^1 \begin{pmatrix} x \\ y \\ z \end{pmatrix} \cdot \begin{pmatrix} x \\ y \\ z \end{pmatrix} \left(1-x^2-y^2\right)dxdy &= \int_{-1}^1 \int_{-1}^1 \left( x^2 + y^2 +z^2\right) \left(1-x^2-y^2\right)dxdy\\
+%                                                          &= \int_{-1}^1 \int_{-1}^1 \frac{1}{\sqrt{1-x^2-y^2}}dxdy.
+%                                                          \end{align*}
+%                                                          Simimlarly, the southern hemisphere has the same value, and thus we have
+%                                                          \[
+%                                                          \iint_{\Sigma} \vecfieldV \cdot \unitvec d\Sigma = 2 \int_{-1}^1 \int_{-1}^1 \frac{1}{\sqrt{1-x^2-y^2}}dxdy.
+%                                                          \]
+%                                                          One could then evaluate this integral using a change of variables and trigonometric integration.
+%                                                         \end{ex}
+%                                                         
+
+\chapter{Coordinate Systems}
+In the prequel, we discussed the complex plane and its two natural coordinate representations.  These were the Cartesian and polar coordinates.  Recall that if we were given a complex number $z\in \C$, then we could write
+\[
+z=x+iy,
+\]
+which were the Cartesian coordinates for $z$. We could also represent $z$ as
+\[
+z=re^{i\theta},
+\]
+which was the polar coordinate representation.  One found that, for example, addition was nice to compute in the Cartesian representation as
+\[
+z_1+z_2 = (x_1+iy_1)+(x_2+iy_2) = x_1+x_1 + i (y_1+y_2).
+\]
+However, multiplication of complex numbers was much nicer to compute in polar coordinates as
+\[
+z_1z_2 = \left(r_1 e^{i\theta_1}\right)\left(r_2 e^{i\theta_2}\right) = r_1r_2 e^{i(\theta_1+\theta_2)}.
+\]
+The take-home message is that different choices of coordinates provide a (potentially) nicer outlook for certain operations or problems. It is with this in mind that we extend our representation of $\R^3$ to new coordinate systems.
+
+\section{Cylindrical Coordinates}
+
+Our first glance at new coordinates comes in the form of \boldgreen{cylindrical coordinates}.  Let us quickly define the coordinates as
+\begin{align*}
+	x &= \rho \cos \theta\\
+	y &= \rho \sin \theta\\
+	z &= z.
+\end{align*}
+Here, the variables are defined over the ranges $\rho\geq0$, $0\leq \theta < 2\pi$, and $-\infty < z < \infty$.  Ignoring $z$, this is analogous to the polar representation of the complex plane.
+
+\begin{exercise}
+	Compare the real and imaginary Cartesian components of the polar representation in $\C$ to the $x$ and $y$ components of the cylindrical coordinates in $\R^3$.
+\end{exercise}	
+
+Thus, we may now specify a vector in the plane by providing
+\[
+\vecv = \begin{pmatrix} \rho \\ \theta \\ z \end{pmatrix}.
+\]
+The type of coordinates we will be using to represent a vector will be clear from context.  Most instructive is to provide an image of what the coordinates look like.  If we indeed take the vector above, we can plot this in $\R^3$ as follows.
+
+\begin{figure}[H]
+	\label{fig:cylindrical_coordinates}
+	\centering
+	\def\svgwidth{0.6\textwidth}
+		\input{Figures_Part_6/cylindrical_coordinates.pdf_tex}
+		\caption{A diagram of cylindrical coordinates in $\R^3$.}
+\end{figure}
+
+The idea is that at every height $z$ above the $xy$-plane, we are (essentially) using polar coordinates.  In the Figure \ref{fig:cylindrical_coordinates}, one can see how a vector $\vecv$ can be represented in these coordinates geometrically.  We need to supply the angle $\theta$ that increases from the $x$-axis in a counter-clockwise manner; we supply the distance from the $z$-axis as the variable $\rho$; we supply the height above the $xy$-plane as the variable $z$ (which is no different than the Cartesian coordinates).
+
+We can also invert these coordinates so that we could construct a cylindrical representation of a vector given in Cartesian coordinates.  That is, we have
+\begin{align*}
+\rho &= \sqrt{x^2+y^2}\\
+\theta &= \arctan\left(\frac{y}{x}\right) ~\textrm{if $x>0$}, \\
+\theta &= \arctan\left(\frac{y}{x}\right) + \pi ~\textrm{if $x<0$},\\
+z &= z.
+\end{align*}
+
+\begin{exercise}
+	Either re-derive these facts for yourself, or revisit the section in the prequel on polar coordinates.
+\end{exercise}
+
+It's worth comparing the cylindrical coordinate system to the Cartesian coordinate system by first seeing what objects we can create in a natural way. If we take the variables $x$, $y$, and $z$ to be over some range, say
+\[
+x_0 \leq x \leq x_1, \qquad y_0 \leq y \leq y_1, \qquad z_0 \leq z \leq z_1,
+\]
+then this will generate a rectangular prism.
+
+\textcolor{red}{insert figure}
+
+ We could also see more natural objects by holding certain variables constant. In the case for cartesian coordinates, if we hold the variable $x$ to be constant, and let the variables $y$ and $z$ be free to vary, then this will construct a plane parallel to the $yz$-plane.
+
+\textcolor{red}{Insert figure}
+
+Likewise, we can hold the variable $y$ or $z$ constant and receive something analogous.
+
+\begin{exercise}
+	In Cartesian coordinates, first take the variable $y$ to be constant and draw a picture of the object (plane) that you will get. Repeat this by then taking $z$ to be constant.
+\end{exercise}
+
+We could also hold two variables constant at once and generate another natural object.  Say, for example, we hold both $x$ and $y$ constant, then this will generate a line parallel to the $z$ axis that passes through a point $(x,y)$ in the $xy$-plane.
+
+\textcolor{red}{insert figure}
+
+This same analysis could be performed in cylindrical coordinates.  Say that we let the variables range over
+\[
+\rho_0 \leq \rho \leq \rho_1, \qquad \theta_0 \leq \theta \leq \theta_1, \qquad z_0 \leq z \leq z_1,
+\]
+then what we recieve is a cut-out of a solid cylinder.
+
+\textcolor{red}{insert figure}
+
+We could then hold $\rho$ constant, and note that this will create a cut-out of a surface of a cylinder.
+
+\textcolor{red}{insert figure}
+
+If we hold $\theta$ constant, then this will cut-out a plane that is perpendicular to the $xy$-plane.
+
+\textcolor{red}{insert figure}
+
+Finally, if we hold $z$ constant, then we will generate a disk at the given height $z$.
+
+\textcolor{red}{insert figure}
+
+
+\begin{exercise}
+	Try holding two variables constant and seeing what shapes will be created in those cases. Realize the following.
+	\begin{itemize}
+		\item If $\rho$ and $\theta$ are constant, this will create a line parallel to the $z$ axis.
+		\item If $\rho$ and $z$ are constant, this will create a circle of radius $\rho$ at height $z$.
+		\item If $\theta$ and $z$ are constant, this will create a ray.
+	\end{itemize}	
+\end{exercise}
+
+\subsection{Functions and Calculus in Cylindrical Coordinates}
+
+We defined three types of functions previously.  These were curves $\curvegamma$, scalar fields $f$, and vector fields $\vecfieldV$.  But, our description for these was always provided in Cartesian coordinates.  Now, we could specify a curve by
+\[
+\curvegamma(t) = \begin{pmatrix} \rho(t) \\ \theta(t) \\ z(t) \end{pmatrix},
+\]
+a scalar field by
+\[
+f(\rho,\theta,z),
+\]
+and a vector field by
+\[
+\vecfieldV(\rho,\theta,z) =  V_1(\rho,\theta,z)\xhat + V_2(\rho,\theta,z)\yhat + V_3(\rho,\theta,z)\zhat.
+\]
+Or, indeed,
+\[
+\vecfieldV(\rho,\theta,z) = V_1(\rho,\theta,z) \rhohat + V_2(\rho,\theta,z) \thetahat + V_3(\rho,\theta,z)\zhat.
+\]
+Perhaps it is confusing to see what we are describing in the case of the curve and vector field.  
+
+For the curve $\curvegamma(t)$ in cylindrical coordinates, we will describe how the coordinates $\rho$, $\theta$, and $z$ change with respect to the variable $t$.  But, for a vector field $\vecfieldV(\rho,\theta,z)$, we will see how the $x$, $y$, and $z$ components of the vector field depend on $\rho$, $\theta$, and $z$.  One could generate new basis vectors $\boldsymbol{\hat{\rho}}$, $\boldsymbol{\hat{\theta}}$, and $\boldsymbol{\hat{z}}$, but we will get to this in a bit. The key point of using new coordinates is to simplify expressions that are not well suited for the Cartesian coordinate system.  Let's take an example.
+
+\begin{ex}{A Cylindrical Curve}{cylindrical_curve}
+    Take for example the following curve in space
+    \[
+    \curvegamma(t) = \begin{pmatrix} \cos(t) \\ \sin(t) \\ 0 \end{pmatrix} = \cos(t)\xhat + \sin(t)\yhat.
+    \]
+    We have seen this curve before, and it parameterizes the unit circle in the plane.  However, the description of this curve can be drastically simplified.  Notice that the unit circle satisfies $\rho(t)=1$ since the distance from the $z$-axis never changes over time.  Also, one can see that $\theta(t)=t$, since $\theta$ changes constantly over time.  Specifically, we notice that we complete a full revolution when $t=2\pi$.
+    
+    Recall that $x=\cos(\theta)$ and $y=\sin(\theta)$, and for a curve in Cartesian coordinates we provide
+    \[
+    x(t), \quad y(t), \quad z(t).
+    \]
+    Since $x(t)=\rho(t)\cos(\theta(t))$ and $y(t)=\rho(t)\sin(\theta(t))$, we can see that we must have $\rho(t)=1$ $\theta=t$. Lastly, $z(t)=0$, which does not change under these new coordinates.  So, one could write the curve in cylindrical coordinates as
+    \[
+    \curvegamma(t) = \begin{pmatrix} 1 \\ t \\ 0 \end{pmatrix},
+    \]
+    which is considerably more simple.  
+\end{ex}
+
+In the previous example, we wrote
+\[
+\curvegamma(t) = \begin{pmatrix} 1 \\ t \\ 0 \end{pmatrix},
+\]
+which through context specifies $\rho(t)=1$, $\theta(t)=t$, and $z(t)=0$.  But, we have written this as a vector, and thus we should be considering some basis vectors in which this is inherently using.  It turns out that we can put
+\[
+\curvegamma(t) = 1\rhohat + t \thetahat + 0\zhat,
+\]
+where $\rhohat$ and $\thetahat$ are the cylindrical unit vector(fields).  Again, we will discuss these vectors in a bit.
+
+\begin{ex}{A Cylindrical Scalar Field}{cylindrical_scalar_field}
+    Consider the scalar field
+    \[
+    f(x,y,z) = \frac{z}{\sqrt{x^2+y^2}}.
+    \]
+    One can claim that this scalar field is much more natural in cylindrical coordinates.  Let's see why that is.  Recall that $x=\rho\cos(\theta)$ and $y=\sin(\theta)$, and hence if we plug these substitutions into the field, we get
+    \[
+    f(\rho,\theta,z) = \frac{z}{\sqrt{\rho^2 \cos^2(\theta) + \rho^2 \sin^2(\theta)}} = \frac{z}{\rho}.
+    \]
+    Thus, this field is really just coming from a ratio of $z$ to $\rho$.  In Cartesian coordinates, this is not as clear.
+\end{ex}
+
+Though the scalar field example may seem somewhat contrived, it is not so.  Indeed, there are many descriptions of our world that are actually described most easily using this coordinate system from the beginning.  For example, if one has a constantly charged wire aligned with the $z$-axis (which you could always choose the axis of alignment), then the strength of this field would fall off according to a function of just $\rho$.  Hence, the cylindrical description is not only adequate, but it is natural.
+
+\subsection{Cylindrical Unit Vector Fields}
+
+In Cartesian coordinates, we took the basis vectors to be $\xhat$, $\yhat$, and $\zhat$. At any point in space, we chose to use this same basis in order to describe curves and vector fields. In principle, however, one does not have to choose the same basis vectors at each point in space!  Thinking this way is new, but it is important.  
+
+Recall that if we are given a point in space in cylindrical coordinates, that we can convert this back to Cartesian coordinates via
+\begin{align*}
+\rho(x,y,z) &= \sqrt{x^2+y^2}\\
+\theta(x,y,z) &= \arctan\left(\frac{y}{x}\right) ~\textrm{if $x>0$}, \\
+\theta(x,y,z) &= \arctan\left(\frac{y}{x}\right) + \pi ~\textrm{if $x<0$},\\
+z(x,y,z) &= z.
+\end{align*}
+As we've written above, we can think of each of these as scalar fields of $x$, $y$, and $z$.  That is, for example, we took $\rho(x,y,z)=\sqrt{x^2+y^2}$.  From this perspective, we can generate new vector fields by taking the gradient of these coordinate functions.  For example,
+\[
+\grad \rho(x,y,z) = \frac{x}{\sqrt{x^2+y^2}}\xhat + \frac{y}{\sqrt{x^2+y^2}}\yhat.  
+\]
+Note that this vector field is normalized since
+\[
+\left|\grad \rho(x,y,z)\right| = 1,
+\]
+at every point in space.  Thus, we will refer to this unit vector field as
+\[
+\rhohat(x,y,z) = \frac{x}{\sqrt{x^2+y^2}}\xhat + \frac{y}{\sqrt{x^2+y^2}}\yhat.
+\]
+This vector field points away from the $z$-axis in the direction of increasing $\rho$ at every point in space!
+
+Likewise, we can compute the other unit vectors
+\[
+\thetahat(x,y,z) = \frac{\grad \theta}{\left| \grad \theta \right|} = \frac{-y}{\sqrt{x^2+y^2}}\xhat + \frac{x}{\sqrt{x^2+y^2}}\yhat.
+\]
+and
+\[
+\zhat(x,y,z) = \zhat.
+\]
+Notice that $\zhat$ is constant much like we found $\xhat$ and $\yhat$ to be constant in Cartesian coordinates.
+
+\begin{exercise}
+    Compute the vector fields above. Then, plot those vector fields.
+\end{exercise}
+
+A primary concern for the basis vectors $\xhat$, $\yhat$, and $\zhat$ was that these vector fields were orthonormal at every point. This meant that we could decompose vectors into this basis very nicely.  It also meant that we could more easily compute a cross product.  The same is true for the vector fields $\rhohat$, $\thetahat$, and $\zhat$.  
+
+\begin{exercise}
+    Show that the vector fields $\rhohat$, $\thetahat$, and $\zhat$ are orthonormal.
+\end{exercise}
+
+\textcolor{red}{insert figure}
+
+These vector fields come into play immediately. For example, we considered the curve given by $\rho(t)=1$, $\theta(t)=t$ and $z(t)=0$ which we wrote as
+\[
+\curvegamma(t) = \begin{pmatrix} 1 \\ t \\ 0 \end{pmatrix}.
+\]
+But, this was really implying that we should write
+\[
+\curvegamma(t) = \rho(t)\rhohat(x(t),y(t),z(t)) + \theta(t)\thetahat(x(t),y(t),z(t))+z(t)\zhat = \rhohat + t\thetahat.
+\]
+Using the substitutions above, we have that
+\[
+x(t) = \rho(t)\cos(\theta(t)) = \cos(t), \quad y(t) = \rho(t)\sin(\theta(t))=\sin(t), \quad z(t)=0,
+\]
+and thus we arrive at
+\[
+\curvegamma(t) = \cos(t)\xhat + \sin(t)\yhat,
+\]
+which was the curve we started with.
+
+\begin{remark}
+It may seem a bit circular to describe quantities in this manner, but it turns out to simplify our expressions quite a bit.
+\end{remark}
+
+Likely the most useful application is to use new orthonormal basis vectors to describe a vector field.  Some vector fields in nature simply seem to align themselves along these cylindrical basis elements.  For example, we saw that a charged wire generated a scalar field that could be described nicely in terms of these coordinates.  One could also find that a charged wire generates a vector field in terms of these coordinates as well. In the next example, we can see a vector field that sits in this coordinate system nicely.  One can interpret this vector field as the magnetic field as being related to one generated by a current carrying wire.
+
+
+\begin{ex}{A Cylindrical Vector Field}{cylindrical_vect_field}
+    Consider the vector field
+    \[
+    \vecfieldV(x,y,z) = \begin{pmatrix} \frac{-y}{x^2+y^2} \\ \frac{x}{x^2+y^2} \\ 0 \end{pmatrix},
+    \]
+    previously.  If one plots this field, you can see that this vector field rotates in the $\theta$-direction. Said another way, this vector field curls around the $z$-axis.  Due to this nature, it may be apt to describe this field not in Cartesian coordinates, but in cylindrical coordinates.  Let us write
+    \[
+    \vecfieldV(x,y,z) = \frac{-y}{x^2+y^2}\xhat + \frac{x}{x^2+y^2}\yhat.
+    \]
+    Now, recall that
+    \[
+    \frac{-y}{\sqrt{x^2+y^2}}\xhat + \frac{x}{\sqrt{x^2+y^2}}\yhat, \qquad \textrm{and} \qquad \rho(x,y,z) = \sqrt{x^2+y^2},
+    \]
+    and we have
+    \[
+    \vecfieldV(\rho,\theta,z) = \frac{1}{\rho} \thetahat.
+    \]
+    Hence, we can see that this vector field rotates in the $\theta$-direction with decreasing magnitude as we move further from the $z$-axis.
+\end{ex}
+
+\begin{exercise}
+    Confirm that the substitution above is correct.
+\end{exercise}
+
+\subsection{Integration in Cylindrical Coordinates}
+
+The next installment of our treatment of the cylindrical coordinate system is to determine how we can integrate functions.  For the same reasoning as before, one may find that using a new coordinate system simplifies the problem at hand.  But, we must be careful in how we set this up.
+
+For a region in space $\Omega$, we used a triple integral to integrate a function over this region.  Specifically, in Cartesian coordinates we would put
+\[
+\iiint_\Omega f d\Omega = \iiint_\Omega f(x,y,z) dxdydz.
+\]
+However, if our function $f$, for example, is a function of $\rho$, $\theta$, and $z$, then we would need to integrate with respect to those variables.  Likewise, we must then be able to describe the region $\Omega$ in these variables as well.  We can make note of the fact that some regions (e.g., a solid cylinder) are more easily described in these coordinates anyway.
+
+We must then determine the \boldgreen{volume form} $d\Omega$ in cylindrical coordinates.  Let us think of the coordinate transformations as functions.  That is, we have $x(\rho,\theta,z)$, $y(\rho,\theta,z)$, and $z(\rho,\theta,z)$.  We can then collect these functions into a single transformation
+\[
+\vecfieldT(\rho,\theta,z) = \begin{pmatrix} x(\rho,\theta,z) \\ y(\rho,\theta,z) \\ z(\rho,\theta,z) \end{pmatrix} = \begin{pmatrix} \rho \cos(\theta) \\ \rho \sin(\theta) \\ z \end{pmatrix}.
+\]
+Then, if we take the Jacobian of this transformation, we have
+\[
+[J]_{\vecfieldT} = \begin{pmatrix} \frac{\partial T_1}{\partial \rho} & \frac{\partial T_1}{\partial \theta} & \frac{\partial T_1}{\partial z} \\ \frac{\partial T_2}{\partial \rho} & \frac{\partial T_2}{\partial \theta} & \frac{\partial T_2}{\partial z} \\ \frac{\partial T_3}{\partial \rho} & \frac{\partial T_3}{\partial \theta} & \frac{\partial T_3}{\partial z}  \end{pmatrix} =  \begin{pmatrix} \cos(\theta) & - \rho \sin(\theta) & 0 \\ \sin(\theta) & \rho \cos(\theta) & 0 \\ 0 & 0 & 1 \end{pmatrix}
+\]
+The Jacobian is then the matrix (for a linear transformation) that tells us how our coordinates $x$, $y$, and $z$ change as we change the variables $\rho$, $\theta$, and $z$ infinitesimally.  Remember, the determinant of a matrix describes the stretching of space caused by the transformation, and here we have
+\[
+\det \left( [J]_{\vecfieldT}\right) = \rho.
+\]
+Intuitively, this tells us that our space is more stretched in these coordinates as we move further out in $\rho$.
+
+\begin{exercise}
+Confirm that the above determinant is correct.
+\end{exercise}
+
+It is a fact that this leads us to the volume form by
+\[
+d\Omega = \left| \det \left([J]_{\vecfieldT}\right)\right|d\rho d\theta dz = \rho d\rho d\theta dz,
+\]
+with the ordering $d\rho d\theta dz$ chosen due to the order of these coordinates that we started with. Thus, in cylindrical coordinates we would find
+\[
+\iiint_\Omega f d\Omega = \iiint_\Omega f(\rho,\theta,z) \rho d\rho d\theta dz.
+\]
+
+We can picture this as follows. \textcolor{red}{insert figure}
+
+\begin{ex}{Integral in Cylindrical Coordinates}{int_cylindrical}
+    Consider the scalar field $f(x,y,z) = \frac{z}{\sqrt{x^2+y^2}}$ over the region $\Omega$ which is the solid cylinder of radius $\rho=1$ centered around the $z$-axis with $z\in [0,5]$. Thus, we also have that $\theta \in [0,2\pi)$. We want,
+    \[
+    \iiint_\Omega f d\Omega.
+    \]
+    We have converted $f(x,y,z)$ into cylindrical coordinates to get $f(x,y,z) = \frac{z}{\rho}$.  This yields the integral
+    \[
+    \int_0^5 \int_0^{2\pi} \int_0^1 \frac{z}{\rho} \rho d\rho d\theta dz.
+    \]
+    We can then compute this integral
+    \begin{align*}
+        \int_0^5 \int_0^{2\pi} \int_0^1 \frac{z}{\rho} \rho d\rho d\theta dz &= \int_0^5 \int_0^{2\pi} \int_0^1 z d\rho d\theta dz \\
+        &= \int_0^5 \int_0^{2\pi} z d\theta dz \\
+        &= \int_0^5 2\pi z dz\\
+        &= \left. \pi z^2 \right|_0^5\\
+        &= 25 \pi.
+    \end{align*}
+    One can notice that we get rid of a pesky $\infty$ in this coordinate system as well.  That is, when $x=y=0$, we have $f(0,0,z)=+\infty$.  But, when it came to integration, this was not even noticed!
+\end{ex}
+
+\begin{exercise}
+    One should challenge themselves to integrate the above function over the same region but in Cartesian coordinates.
+\end{exercise}
+
+\subsection{Derivatives in Cylindrical Coordinates}
+
+In Cartesian coordinates we defined a few notions of derivatives depending on what types of functions (curves, scalar fields, or vector fields) we wanted to analyze.  Not only that, but for vector fields, we saw a few different derivatives such as the Jacobian, divergence, and curl.  Underlying these definitions was the Cartesian coordinate system.  Fundamentally, each coordinate in the Cartesian system was given the same weighting. We can see this by looking at the volume form which was $dxdydz$.  However, in cylindrical coordinates, the volume form has dependence on the current position in space.  Specifically, we saw that the volume form was $\rho d\rho d\theta dz$. 
+
+We will choose now to concentrate on scalar fields and their derivatives.  Recall that given a scalar field in Cartesian coordinates, that we have
+\[
+\grad f(x,y,z) = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial f}{\partial z} \end{pmatrix} = \frac{\partial f}{\partial x}\xhat + \frac{\partial f}{\partial y}\yhat + \frac{\partial f}{\partial z} \zhat.
+\]
+But, in cylindrical coordinates, will it be as simple?  The answer is no.  Specifically, it's due to the same fact that the area swept out as we change in $\theta$ is given by $\rho d\theta$. So, it is not as simple as just taking partial derivatives. Also, we will have to write the gradient in terms of the cylindrical basis vectors $\rhohat$, $\thetahat$, and $\zhat$.  
+
+By doing some work, one can derive that the gradient in cylindrical coordinates is given by 
+\[
+\grad f(\rho,\theta,z) = \frac{\partial f}{\partial \rho} \rhohat + \frac{1}{\rho} \frac{\partial f}{\partial \theta} \thetahat + \frac{\partial f}{\partial z}\zhat.
+\]
+The major difference is the inclusion of the $1/\rho$ factor in front of the partial derivative with respect to $\theta$. It is important to remember that the gradient of a scalar field is a vector field!
+
+We also discussed the Laplace operator $\Delta$ which was given by
+\[
+\Delta f(x,y,z) = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2}.
+\]
+Here, the Laplacian of a scalar field is once again a scalar field.  But, seeing as we found the Laplacian as
+\[
+\grad \cdot (\grad f(x,y,z)) = \Delta f(x,y,z),
+\]
+we should expect that the Laplacian in cylindrical coordinates undergoes a change as well.  Indeed, the cylindrical Laplacian is given by
+\[
+\Delta f(\rho,\theta,z) = \frac{1}{\rho} \frac{\partial}{\partial \rho} \left(\rho \frac{\partial f}{\partial \rho}\right)+\frac{1}{\rho^2} \frac{\partial^2 f}{\partial \theta^2} + \frac{\partial^2 f}{\partial z^2}.
+\]
+
+
+\section{Spherical Coordinates}
+
+Perhaps one of the most useful coordinate systems is the \boldgreen{spherical coordinates} given by the variables $r$, $\theta$, and $\phi$.  Let us first write the coordinate transformations by
+\begin{align*}
+    x &= r\cos \theta \sin \phi\\
+    y &= r\sin \theta \sin \phi\\
+    z &= r\cos \phi.
+\end{align*}
+The picture to keep in mind with these coordinates is the following.
+
+\begin{figure}[H]
+	\label{fig:spherical_coordinates}
+	\centering
+	\def\svgwidth{0.6\textwidth}
+		\input{Figures_Part_6/3d_spherical_coordinates.pdf_tex}
+		\caption{A diagram of spherical coordinates in $\R^3$.}
+\end{figure}
+
+\subsection{Integration in Spherical Coordinates}
+
+We begin by determining the volume form in spherical coordinates. Take the coordinate transformation
+\[
+\vecfieldT(r,\theta,\phi) = \begin{pmatrix} x(r,\theta,\phi) \\ y(r,\theta,\phi) \\ z(r,\theta,\phi) \end{pmatrix} = \begin{pmatrix} r \cos\theta \sin \phi \\ r \sin \theta \sin \phi \\ r\cos \phi \end{pmatrix}.
+\]
+Then, if we take the Jacobian of this transformation, we have
+\[
+[J]_{\vecfieldT} = \begin{pmatrix} \frac{\partial T_1}{\partial r} & \frac{\partial T_1}{\partial \theta} & \frac{\partial T_1}{\partial \phi} \\ \frac{\partial T_2}{\partial r} & \frac{\partial T_2}{\partial \theta} & \frac{\partial T_2}{\partial \phi} \\ \frac{\partial T_3}{\partial r} & \frac{\partial T_3}{\partial \theta} & \frac{\partial T_3}{\partial \phi}  \end{pmatrix} =  \begin{pmatrix} \cos \theta \sin \phi & -r\sin \theta \sin \phi & r\cos \theta \cos \phi \\ \sin \theta \sin \phi & r\cos \theta \sin \phi & r \sin \theta \cos \phi \\ \cos \phi & 0 & -r\sin \phi \end{pmatrix}
+\]
+The determinant of a matrix describes the stretching of space as our coordinates change in $r$, $\theta$, and $\phi$ to yield
+\[
+\det \left( [J]_{\vecfieldT}\right) = r^2 \sin \phi
+\]
+Thus we arrive at the volume form 
+\[
+d\Omega = r^2 \sin \phi dr d\theta d\phi.
+\]
+
