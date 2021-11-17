@@ -1,11 +1,11 @@
-        
+
 There is another kind of problem we care to work with.  All the problems we have considered have been initial value problems. However, there is a completely different type of problem we can solve.  This will be called a \boldgreen{boundary value problem}.  Let us make a comparison.
 
 \subsubsection{Second Order Initial Value Problem}
 \begin{itemize}
-    \item Given a very general second order equation $x''=f(t,x,x')$ and initial data $x(0)=x_0$ and $x'(0)=v_0$.  
-    \item Both conditions are given at the initial time $t=0$. We have one condition $x(0)$ for position and the other $x'(0)$ for velocity 
-    \item Think of the solution $x(t)$ of tracking a particle over time. 
+    \item Given a very general second order equation $x''=f(t,x,x')$ and initial data $x(0)=x_0$ and $x'(0)=v_0$.
+    \item Both conditions are given at the initial time $t=0$. We have one condition $x(0)$ for position and the other $x'(0)$ for velocity
+    \item Think of the solution $x(t)$ of tracking a particle over time.
 \end{itemize}
 
 \subsubsection{Second Order Boundary Value Problem}
@@ -15,7 +15,7 @@ There is another kind of problem we care to work with.  All the problems we have
     \item Think of solution $u(x)$ as modeling a measurable quantity of an object (i.e., temperature, height, stress, or strain).
 \end{itemize}
 
-Boundary value problems are very important in the physical world.  For example, an engineer may wish to understand how a rod is deformed under the force of gravity as well as whatever machinery is pulling and pushing on it.  The engineer would hope to understand this deformation so that they can build sturdy structures.  In the field of chemistry, we see boundary value problems arise in thermal or quantum transport, in chemical reactions, in waves or lattice vibrations, and more. 
+Boundary value problems are very important in the physical world.  For example, an engineer may wish to understand how a rod is deformed under the force of gravity as well as whatever machinery is pulling and pushing on it.  The engineer would hope to understand this deformation so that they can build sturdy structures.  In the field of chemistry, we see boundary value problems arise in thermal or quantum transport, in chemical reactions, in waves or lattice vibrations, and more.
 
 Not all boundary value problems are second order.  However, we'll concentrate first on problems that are second order as they are more pertinant for us.  The equations we'll start with will be Laplace's (or Poisson's) equation and then we'll move onto Schr\"odinger's equation.
 
@@ -23,7 +23,7 @@ Not all boundary value problems are second order.  However, we'll concentrate fi
 
 Let us set up the problem at hand.  We'll define our first boundary value problem as such.
 \begin{df}{Boundary Value Problem}{boundary_val}
-A \boldgreen{boundary value problem} is a differential equation (of possibly multiple variables) defined on a region in space $\Omega$ with prescribed \boldgreen{boundary data} (i.e., functions defined on the boundary of the region $\Omega$).  
+A \boldgreen{boundary value problem} is a differential equation (of possibly multiple variables) defined on a region in space $\Omega$ with prescribed \boldgreen{boundary data} (i.e., functions defined on the boundary of the region $\Omega$).
 
 For now, all regions will be $\Omega=[a,b]$, the \boldgreen{boundary} is the set $\{a,b\}$, and the differential equations will be second order.
 \end{df}
@@ -43,7 +43,7 @@ This problem statement leads us to consider the following boundary value problem
 \[
 \frac{d^2}{dx^2}u(x)=0
 \]
-on the region $\Omega = [0,L]$ with boundary data $u(0)=1$ and $u(L)=0$. Here, we are providing the function value that $u(x)$ must satisfy on the boundary.  Everywhere inside $\Omega$ (i.e., $(0,L)$), $u(x)$ must satisfy the differential equation as well. 
+on the region $\Omega = [0,L]$ with boundary data $u(0)=1$ and $u(L)=0$. Here, we are providing the function value that $u(x)$ must satisfy on the boundary.  Everywhere inside $\Omega$ (i.e., $(0,L)$), $u(x)$ must satisfy the differential equation as well.
 
 We know how to solve this equation as we can just integrate twice.  We find that the general solution is
 \[
@@ -75,7 +75,7 @@ On a region $\Omega=[a,b]$ we prescribe boundary data $u(a)=u_a$ and $u(b)=u_b$.
 \[
 \frac{d^2}{dx^2}u(x)=0
 \]
-and \boldgreen{Poisson's equation} is 
+and \boldgreen{Poisson's equation} is
 \[
 -\frac{d^2}{dx^2}(x)=F(x)
 \]
@@ -113,7 +113,7 @@ and so $b=-\frac{1}{2}$. Hence our particular solution to the boundary value pro
 \]
 We can plot this solution and see if this makes physical sense.
 \begin{figure}[H]
-    \centering 
+    \centering
     \includegraphics[width=.6\textwidth]{Figures_Part_1/poisson_equation_gravity.png}
     \caption{The profile of a cable under a constant force directed downward.}
 \end{figure}
@@ -146,9 +146,9 @@ This gives rise to the boundary value problem
 \[
 -\frac{\hbar^2}{2m}\frac{d^2\Psi}{dx^2}=E\Psi
 \]
-with boundary conditions $\Psi(0)=0$ and $\Psi(L)=0$. This should look much like the eigenfunction equation for the Laplacian we saw previously. These boundary conditions will seem more sensible when we get a better interpretation of the wavefunction $\Psi$. If you'd like, you can essentially plug in $V(x)=\infty$ and see that the only possibility for a solution is that $\Psi(x)=0$ (but this is a bit handwavy). 
+with boundary conditions $\Psi(0)=0$ and $\Psi(L)=0$. This should look much like the eigenfunction equation for the Laplacian we saw previously. These boundary conditions will seem more sensible when we get a better interpretation of the wavefunction $\Psi$. If you'd like, you can essentially plug in $V(x)=\infty$ and see that the only possibility for a solution is that $\Psi(x)=0$ (but this is a bit handwavy).
 
-Now, let us solve this boundary value problem.  We have a second order linear differential equation with constant coefficients. In fact, it is also homogeneous as we can write 
+Now, let us solve this boundary value problem.  We have a second order linear differential equation with constant coefficients. In fact, it is also homogeneous as we can write
 \[
 \frac{d^2\Psi}{dx^2}+\frac{2mE}{\hbar^2}\Psi =0.
 \]
@@ -165,7 +165,7 @@ so $\lambda_1=i\omega$ and $\lambda_2=\lambda_1^*$. This then gives us the gener
 \[
 \Psi(x)=C_1 e^{i\omega x}+C_2 e^{-i\omega x}.
 \]
-Of course, it is also possible to write 
+Of course, it is also possible to write
 \[
 \Psi(x)=C_1\cos(\omega x)+C_2\sin(\omega x),
 \]
@@ -197,7 +197,7 @@ which when we solve for $E_n$ gives us
 \]
 What have we found? We have found that to each solution $\psi_n$ there corresponds an energy value $E_n$. We've also seen that there are infinitely many solutions but they correspond to \boldgreen{quantized} energy levels! We can disregard some of our solutions as well. In fact, we keep only $n=1,2,3,\dots$ as $n=0$ gives us $\psi_0(x)=0$ which is not a physical solution (we'll see more on this in just a bit).  Also, we have that $\psi_n(x)=-\psi_{-n}(x)$, so the negative values for $n$ are simply redundant.
 
-The interpretation of the $\psi_n$ is that they are the allowable \boldgreen{stationary states}\index{states!stationary} of the system. In this case, the system is the particle in a 1-dimensional box. In general, a \boldgreen{wavefunction}\index{wavefunction} $\Psi(x,t)$ will be a sum of these states, but with an added time dependence that we did not talk about here. The wavefunction describes a \boldgreen{probability} of a particle being at a position.  How so? Well, the following integral gives us the probability (a number $P\in [0,1]$) of a particle with a wavefunction $\Psi(x,t)$ being the region $[a,b]$.  
+The interpretation of the $\psi_n$ is that they are the allowable \boldgreen{stationary states}\index{states!stationary} of the system. In this case, the system is the particle in a 1-dimensional box. In general, a \boldgreen{wavefunction}\index{wavefunction} $\Psi(x,t)$ will be a sum of these states, but with an added time dependence that we did not talk about here. The wavefunction describes a \boldgreen{probability} of a particle being at a position.  How so? Well, the following integral gives us the probability (a number $P\in [0,1]$) of a particle with a wavefunction $\Psi(x,t)$ being the region $[a,b]$.
 \[
 P([a,b]=\int_a^b |\Psi(x,t)|^2 dx=\int_a^b \Psi^* \Psi dx,
 \]
@@ -222,7 +222,7 @@ In general, one would hope to combine our states to create a more general wavefu
 \[
 \Psi(x) = \sum_{j=1}^\infty a_j \psi_j.
 \]
-We refer to this $\Psi(x)$ as a superposition of states.  Without adding in time dependence, it is \textbf{not} true that a superposition of states solves the time independent Schr\"odinger equation! 
+We refer to this $\Psi(x)$ as a superposition of states.  Without adding in time dependence, it is \textbf{not} true that a superposition of states solves the time independent Schr\"odinger equation!
 
 Next, we can consider the \boldgreen{inner product}\index{inner product} between states $\psi_n$ and $\psi_m$ which tells us how much of each state ``points in the same direction"
 \[
@@ -244,7 +244,7 @@ and saying that the $\psi_n$ are \boldgreen{orthogonal}\index{orthogonal}. In fa
 \]
 since we have normalized each state.
 \begin{exercise}
-Evaluate the above integral for $\langle \psi_n, \psi_m \rangle$ to show that you get $\langle \psi_n,\psi_m\rangle = \delta_{nm}$.  \emph{Hint: use the following substitution} 
+Evaluate the above integral for $\langle \psi_n, \psi_m \rangle$ to show that you get $\langle \psi_n,\psi_m\rangle = \delta_{nm}$.  \emph{Hint: use the following substitution}
 \[
 \sin\left(\frac{n\pi x}{L}\right)\sin\left(\frac{n\pi x}{L}\right) =\frac{1}{2}\left[ \cos\left( \frac{(n-m)\pi x}{L} \right) - \cos\left( \frac{(m+n)\pi x}{L}\right)\right].
 \]
@@ -256,7 +256,7 @@ What do these states of the system look like? We can plot them for different val
         \includegraphics[width=\textwidth]{Figures_Part_2/state_1.png}
         \caption{$\psi_1(x)$.}
     \end{subfigure}
-    ~ 
+    ~
     \begin{subfigure}[h]{0.3\textwidth}
         \includegraphics[width=\textwidth]{Figures_Part_2/state_2.png}
         \caption{$\psi_2(x)$.}
@@ -266,12 +266,12 @@ What do these states of the system look like? We can plot them for different val
         \includegraphics[width=\textwidth]{Figures_Part_2/state_3.png}
         \caption{$\psi_3(x)$.}
     \end{subfigure}\\
-    
+
         \begin{subfigure}[h]{0.3\textwidth}
         \includegraphics[width=\textwidth]{Figures_Part_2/state_10.png}
         \caption{$\psi_{10}(x)$.}
     \end{subfigure}
-    ~ 
+    ~
     \begin{subfigure}[h]{0.3\textwidth}
         \includegraphics[width=\textwidth]{Figures_Part_2/state_50.png}
         \caption{$\psi_{50}(x)$.}
@@ -307,12 +307,12 @@ More generally, due to the orthonormality of the stationary states, we can write
         \includegraphics[width=.5\textwidth]{Figures_Part_2/energy_levels.png}
         \caption{Energy levels of the 1-dimensional box.}
     \end{figure}
-    \item We normalized the solutions $\psi_n$ and found that they give rise to a probability function that describe the probability of a particle being in a region $[a,b]$. 
+    \item We normalized the solutions $\psi_n$ and found that they give rise to a probability function that describe the probability of a particle being in a region $[a,b]$.
     \item We can take an initial profile for a wavefunction as a superposition
     \[
     \Psi(x,0)=\sum_{j=1}^\infty a_j \psi_j(x)
     \]
-    where $\sum_{j=1}^\infty a_j^2 = 1$. If more than one $a_j\neq 0$, then this wavefunction describes a superposition state. 
+    where $\sum_{j=1}^\infty a_j^2 = 1$. If more than one $a_j\neq 0$, then this wavefunction describes a superposition state.
     \item We can then find the probability of a particle with wavefunction $\Psi(x,t)$ being in the region $[a,b]$ at time $t$ by
     \[
     P([a,b])=\int_a^b |\Psi(x,t)|^2dx.
@@ -329,6 +329,91 @@ Look up common energies for something like throwing a baseball. Compare this to 
 \end{exercise}
 
 \begin{remark}
-    The time dependent aspect will be covered after we learn multivariate calculus in Math 272.  There we will find that superposition of time dependent states does indeed give us a solution to the time dependent version of the equation.  
+    The time dependent aspect will be covered after we learn multivariate calculus in Math 272.  There we will find that superposition of time dependent states does indeed give us a solution to the time dependent version of the equation.
 \end{remark}
+
+\section*{Problems}
+
+\begin{problem}
+Finish all the exercises in this chapter.
+\end{problem}
+
+\begin{problem}
+Consider the boundary value problem
+\[
+x''=g
+\]
+with boundary values $x(0)=0$, $x\left(-\frac{2}{g}\right)=0$ and $g=-9.8[m/s^2]$.  We can think of this as solving the \emph{inverse problem} of one that we have seen in a homework. Specifically, think of this as knowing where a ball is launched and knowing where it lands and trying to find the speed it must have been thrown at.
+
+Another interpretation is the shape of a rod bending due to gravity.  $x''$ would measure the curvature of this rod, and this equation would say that the rod under the force of gravity would have a constant curvature. In this case, the dependent variable $t$ should be thought of as spatial rather than temporal.
+
+Finally, this equation above is referred to as \emph{Poisson's equation}.
+\begin{enumerate}[(a)]
+    \item Find the general solution. If you already know it from the homework, just write it down.
+    \item Use the boundary values above to find the particular solution.
+    \item Is the solution unique?
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Consider the \emph{time independent Sch\"odinger equation} for a \emph{free particle} constrained inside of a 1-dimensional box of length $L$. That is, we have the equation
+\[
+-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}\psi(x)=E\psi(x)
+\]
+on the unit interval $[0,L]$.
+\begin{enumerate}[(a)]
+    \item Find the general solution to this equation with no constraint.
+    \item Given the constraint, we have the boundary values $\psi(0)=\psi(L)=0$. What are the general solutions given this constraint?
+    \item Show that the sum of two solution $\psi_1(x)$ and $\psi_2(x)$ is also a solution. When we have a particle whose state (or \emph{wavefunction}) $\psi$ is a sum of general solutions, we say that $\psi$ is in a \emph{superposition state.}
+    \item The wavefunction is not really a physically meaningful quantity.  However, if we consider a region $[a,b]$ in the box $[0,L]$ the quantity
+    \[
+    P([a,b])=\int_a^b |\psi(x)|^2dx
+    \]
+    \emph{is} meaningful. This expression tells us the \emph{probability} that a particle will be observed in the region $[a,b]$.  Take your general solutions you found in (b) (with the constraint) and solve for the constants that give you
+    \[
+    \int_0^L |\psi(x)|^2dx=1.
+    \]
+    We call this \emph{normalization} and we must do so for each state so that we can interpret the integral $P([a,b])$ as a probability.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Consider the Schr\"odinger equation for a particle in a box of length 1,
+\[
+-\frac{\hbar^2}{2m}\frac{d^2 \Psi}{dx^2} = E\Psi,
+\]
+with boundary conditions $\Psi(0)=0$ and $\Psi(1)=0$.
+\begin{enumerate}[(a)]
+    \item Find the general solution to the differential equation.
+    \item Apply the boundary conditions and write down a solution for each positive integer $n$. Recall that we call these solutions \emph{states} and denote the states by $\psi_n$.
+    \item Determine the normalization constant for each $\psi_n$.  Does this constant depend on $n$?
+    \item Explain why a superposition of states is also a solution to the Schr\"odinger equation.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Schr\"odinger's equation is given by
+\[
+\left(-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+V(x)\right)\Psi(x)=E\Psi(x),
+\]
+where $V(x)$ is the potential at a point $x$, $E$ is the total energy, and $\Psi$ is the wave function.
+\begin{enumerate}[(a)]
+    \item For the free particle in a 1-dimensional box $[0,L]$, what are the boundary conditions for the wavefunction $\Psi$?
+    \vspace*{3cm}
+    \item Again, for the free particle in a 1-dimensional box, what is the potential inside of the box $(0,L)$?
+    \vspace*{3cm}
+    \item If a wavefunction $\Psi$ is normalized, then
+    \[
+    \int_0^L \|\Psi(x)\|^2dx=1.
+    \]
+    True or false?
+    \vspace*{3cm}
+    \item If our wavefunction $\Psi$ is normalized, how do we interpret the quantity
+    \[
+    P([a,b])=\int_a^b \|\Psi(x)\|^2dx?
+    \]
+    \vspace*{3cm}
+
+\end{enumerate}
+\end{problem}
 

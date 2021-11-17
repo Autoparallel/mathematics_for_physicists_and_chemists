@@ -1,4 +1,4 @@
-Since we have constructed different sequences and series, we can move forward into making them more useful for us.  The biggest use for series in our case will be to try and think of functions as a series. Specifically, we may be able to represent a function as a \emph{power series}.  This has many advantages! For one, we can differentiate and integrate a series term by term which simplifies calculations immensely.  Another advantage is the ability to approximate complicated functions.  This is especially useful if one ever plans to use a computer to perform computations.  
+Since we have constructed different sequences and series, we can move forward into making them more useful for us.  The biggest use for series in our case will be to try and think of functions as a series. Specifically, we may be able to represent a function as a \emph{power series}.  This has many advantages! For one, we can differentiate and integrate a series term by term which simplifies calculations immensely.  Another advantage is the ability to approximate complicated functions.  This is especially useful if one ever plans to use a computer to perform computations.
 
 \section{Power Series}
 
@@ -27,7 +27,7 @@ This is an extremely important power series as we will repeatedly.  We can also 
 \[
 \sum_{n=0}^\infty \frac{x^n}{n!} = 1 + x + \frac{x^2}{2}+\frac{x^3}{6}+\cdots.
 \]
-Now, let us take the following partial sums and see what the graphs look like. 
+Now, let us take the following partial sums and see what the graphs look like.
 \begin{align*}
     \sum_{n=0}^0 \frac{x^n}{n!} &= 1\\
     \sum_{n=0}^1 \frac{x^n}{n!} &= 1+x\\
@@ -82,7 +82,7 @@ This power series is similar to a $p$-series for $p=1$.  Hence, we know that if 
 \[
 \sum_{n=1}^\infty \frac{(-1)^n}{n} = \ln(2).
 \]
-Given that, we should expect this series to converge for some values of $x$. So, let us use our ratio test 
+Given that, we should expect this series to converge for some values of $x$. So, let us use our ratio test
 \begin{align*}
     \lim_{n\to \infty} \left| \frac{\frac{x^{n+1}}{n+1}}{\frac{x^n}{n}}\right| &= \lim_{n\to \infty} \left| \frac{nx}{n+1} \right|\\
     &= |x| \cdot \lim_{n\to \infty} \frac{n}{n+1} \\
@@ -91,7 +91,7 @@ Given that, we should expect this series to converge for some values of $x$. So,
 Hence, if we want the above limit to be less than one, then we must have $x<1$. Thus the radius of convergence is one.
 \end{ex}
 
-One often talks about functions being even or odd by using the following relationships: 
+One often talks about functions being even or odd by using the following relationships:
 \begin{itemize}
     \item $f(x)$ is \boldgreen{even} if $f(-x)=f(x)$.
     \item $f(x)$ is \boldgreen{odd} if $f(-x)=-f(x)$.
@@ -100,14 +100,14 @@ This is captured very nicely by a power series. We often say that a power series
 \[
 f(x)=\sum_{n=0}^\infty a_n x^n
 \]
-and we consider the domain of $f(x)$ to be the $x$-values in which the series converges.  
+and we consider the domain of $f(x)$ to be the $x$-values in which the series converges.
 
 \begin{prop}{Even and Odd Functions}{even_and_odd}
 Consider a function $f(x)$ given by a power series so that
 \[
 f(x) = \sum_{n=0}^\infty a_n x^n
 \]
-where the series converges. We then say $f(x)$ is \boldgreen{even} if all odd coefficients $a_{2n+1}=0$ and the function is \boldgreen{odd} if all even coefficients $a_{2n}=0$.  
+where the series converges. We then say $f(x)$ is \boldgreen{even} if all odd coefficients $a_{2n+1}=0$ and the function is \boldgreen{odd} if all even coefficients $a_{2n}=0$.
 
 In other words, if $f(x)$ is even, then
 \[
@@ -127,7 +127,7 @@ When first talking of derivatives, we think of tangent line approximations to fu
 \[
 y = f'(a)(x-a)+f(a).
 \]
-Now, we should think of the tangent line approximation as the beginning of a power series that approximates $f(x)$.  The intuition to have now is that we could, in some sense, create a tangent quadratic approximation, and a tangent cubic approximation, and so on.  
+Now, we should think of the tangent line approximation as the beginning of a power series that approximates $f(x)$.  The intuition to have now is that we could, in some sense, create a tangent quadratic approximation, and a tangent cubic approximation, and so on.
 
 % Put picture of tangent line, quadratic, and cubic approximation to some function
 
@@ -168,14 +168,14 @@ Given a function $f(x)$ that is \emph{analytic} in a region around the point $x=
 \[
 \sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!}(x-a)^n
 \]
-which is equal to the function $f(x)$ (on a sufficiently small interval $(a-\epsilon, a+\epsilon)$. If we let $a=0$, we call this the \boldgreen{Maclaurin series}.  
+which is equal to the function $f(x)$ (on a sufficiently small interval $(a-\epsilon, a+\epsilon)$. If we let $a=0$, we call this the \boldgreen{Maclaurin series}.
 \end{df}
 
 Though the definition above only guarantees that the Taylor series is equal to the function on a small interval, many functions we care about will satisfy
 \[
 f(x)=\sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!}(x-a)^n
 \]
-for large intervals or even all real numbers.  
+for large intervals or even all real numbers.
 
 \begin{ex}{Maclaurin Series for $e^x$}{maclaurin_exp}
 Consider the function $f(x)=e^x$.  We consider constructing the Maclaurin series (Taylor series centered at $x=0$) for $e^x$ by
@@ -212,11 +212,11 @@ So we have that $f^{(n)}(0)=(-1)^{n-1}(n-1)!$ for $n\geq 1$. So our series takes
 \[
 \sum_{n=1}^\infty \frac{(-1)^{n-1}(n-1)!}{n!}x^n = \sum_{n=1}^\infty \frac{(-1)^{n-1}}{n}x^n.
 \]
-It turns out here that we have 
+It turns out here that we have
 \[
 \ln(1+x)=\sum_{n=1}^\infty \frac{(-1)^{n-1}(n-1)!}{n!}x^n = \sum_{n=1}^\infty \frac{(-1)^{n-1}}{n}x^n
 \]
-for $x\in (-1,1)$.  
+for $x\in (-1,1)$.
 \end{ex}
 
 \begin{exercise}
@@ -248,7 +248,7 @@ and
 \int f(x) dx = \int \sum_{n=0}^\infty a_nx^n dx = \sum_{n=0}^\infty a_n \int x^n dx.
 \]
 
-Let us concentrate first on differentiating the power series.  So, we have 
+Let us concentrate first on differentiating the power series.  So, we have
 \begin{align*}
 \frac{d}{dx} \sum_{n=0}^\infty a_nx^n&=\frac{d}{dx} \left(a_0 + a_1x + a_2 x^2 + a_3 x^3 \cdots\right)\\
 &= a_1 + 2a_2x+3a_3x^2+\cdots.
@@ -263,7 +263,7 @@ One could rearrange this series and continue starting it at zero.  We simply hav
 \]
 
 \begin{exercise}
-    Verify that the reindexing above makes sense.  
+    Verify that the reindexing above makes sense.
 \end{exercise}
 
 \begin{exercise}
@@ -328,10 +328,10 @@ Given an approximation of $f(x)$ about the point $x=a$
 \[
 f(x) \approx \sum_{n=0}^N \frac{f^{(n)}(a)}{n!}(x-a)^n,
 \]
-we refer to the \boldgreen{order of the approximation} as the highest power of $x$ that appears. In the above case, we would say that this is an $N^\textrm{th}$ order approximation of $f(x)$. 
+we refer to the \boldgreen{order of the approximation} as the highest power of $x$ that appears. In the above case, we would say that this is an $N^\textrm{th}$ order approximation of $f(x)$.
 \end{df}
 
-It's worth seeing some examples of different orders of approximations to see just how well they fare for different functions.  
+It's worth seeing some examples of different orders of approximations to see just how well they fare for different functions.
 
 \begin{ex}{Approximating $e^x$}{approx_ex_order}
 Consider the function $e^x$ which has the Taylor series centered at $a=0$ given by
@@ -347,7 +347,7 @@ Then we have the approximations
 \end{ex}
 
 \begin{ex}{How Accurate are Approximations of $\sin(x)$}{approx_sinx}
-Consider the function $\sin(x)$ which has the Taylor series centered at $a=0$ 
+Consider the function $\sin(x)$ which has the Taylor series centered at $a=0$
 \[
 \sin(x) = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{(2n+1)!}.
 \]
@@ -358,7 +358,7 @@ Then we can consider the approximations
     2^\textrm{nd}:~\sin(x)&\approx x\\
     3^\textrm{rd}:~\sin(x)&\approx x-\frac{x^3}{3!}.
 \end{align*}
-Due to the fact that $\sin(x)$ is an odd function, we have that the even order approximations don't do any better than the previous odd order approximation.  We can compare the accuracy of the first and third order approximations to the real function values. 
+Due to the fact that $\sin(x)$ is an odd function, we have that the even order approximations don't do any better than the previous odd order approximation.  We can compare the accuracy of the first and third order approximations to the real function values.
     \begin{table}[H]
         \centering
         \renewcommand{\arraystretch}{1.5}
@@ -392,7 +392,7 @@ Consider a pendulum system mounted to a frictionless pivot with a bob of mass $m
 \end{figure}
 Using Newton's second law, we have that the force is equal to the mass times acceleration which leads us to the differential equation
 \[
-mL\theta'' = -mg\sin \theta. 
+mL\theta'' = -mg\sin \theta.
 \]
 This can be well approximated by using the first order approximation for $\sin \theta$. That is, we let
 \[
@@ -402,7 +402,7 @@ to arrive at the differential equation
 \[
 \theta '' = -\frac{g}{L} \theta,
 \]
-which is the harmonic oscillator equation with $\omega^2 = \frac{g}{L}$. 
+which is the harmonic oscillator equation with $\omega^2 = \frac{g}{L}$.
 \end{ex}
 
 \begin{exercise}
@@ -423,7 +423,7 @@ Then, Newton's second law with a potential is given by
 \[
 F= - \frac{dV}{dR}
 \]
-and so 
+and so
 \[
 F\approx -2a^2 D_e(R-R_e).
 \]
@@ -444,7 +444,7 @@ Power series provided a tool to approximate functions in order to simplify diffe
 \[
 f(x) = \sum_{n=0}^\infty a_n x^n
 \]
-then the $a_n$ coefficients tend to depend on one another.  There are a handful of important functions in physics derived from power series solutions to certain differential equations.  For example, we have Bessel functions, Legendre polynomials, and Laguerre polynomials.  Bessel functions are, for example, found in solving for the wave modes on a circular drum head.  Legendre polynomials are found when solving Laplace's equation in spherical coordinates (we have seen Laplace's equation and will see spherical coordinates in the sequel). Specifically, one sees this when solving for states for the electron in a hydrogen atom.  The Laguerre polynomials also arise in quantum mechanics for the radial states of the Hydrogen atom. Not to mention, if one uses the Morse potential in the Schr\"odinger equation, one will find solutions are forms of Laguerre polynomials.  
+then the $a_n$ coefficients tend to depend on one another.  There are a handful of important functions in physics derived from power series solutions to certain differential equations.  For example, we have Bessel functions, Legendre polynomials, and Laguerre polynomials.  Bessel functions are, for example, found in solving for the wave modes on a circular drum head.  Legendre polynomials are found when solving Laplace's equation in spherical coordinates (we have seen Laplace's equation and will see spherical coordinates in the sequel). Specifically, one sees this when solving for states for the electron in a hydrogen atom.  The Laguerre polynomials also arise in quantum mechanics for the radial states of the Hydrogen atom. Not to mention, if one uses the Morse potential in the Schr\"odinger equation, one will find solutions are forms of Laguerre polynomials.
 
 To begin, it's easiest to consider some more simple examples of power series solutions.  The two equations we will work with for now are the population growth or decay equation
 \[
@@ -454,14 +454,14 @@ and the harmonic oscillator equation
 \[
 f''(x)=-\omega^2 f(x).
 \]
-As we already know the solutions to this equation, we don't actually need to solve this equations this way.  But, it does provide us a few working examples before we move onto an equation like Legendre's equation. In general, the idea is to take the ansatz that 
+As we already know the solutions to this equation, we don't actually need to solve this equations this way.  But, it does provide us a few working examples before we move onto an equation like Legendre's equation. In general, the idea is to take the ansatz that
 \[
 f(x) = \sum_{n=0}^\infty a_n x^n
 \]
 and to take the necessary derivatives of the series and plug it into the given differential equation.  From there, one is able to determine the coefficients $a_n$ which determines the function $f(x)$.  If we are given an initial value (values if the differential equation is higher than first order), then we can explicitly determine every $a_n$ exactly.  Let us see this in action.
 
 \begin{ex}{Power Series Solution for the Population Model}{pop_model_series}
-Consider the initial value problem 
+Consider the initial value problem
 \[
 f'(x)=kf(x)
 \]
@@ -581,7 +581,7 @@ Again, verify each step in the above solution and fill in any work you need.
 
 Throughout physics and chemistry there are equations that arise again and again.  A prime example would be the simple harmonic oscillator equation.  It would be a reasonable thought to believe that any oscillating system could be approximated by a harmonic oscillator.  There are of course other types of systems that will continue to pop their heads out in new ways.
 
-We have solved some boundary value problems in 1-dimensional space, but when moving to higher dimensions, especially, when dealing with a specific geometry such as a rectangle, circle, disk, cylinder, or sphere for example, new equations begin to appear. It seems that the underlying geometry is very important for these boundary value problems. In fact, different geometrical objects may not even have a boundary! Take for example the unit circle which is the set of all points 
+We have solved some boundary value problems in 1-dimensional space, but when moving to higher dimensions, especially, when dealing with a specific geometry such as a rectangle, circle, disk, cylinder, or sphere for example, new equations begin to appear. It seems that the underlying geometry is very important for these boundary value problems. In fact, different geometrical objects may not even have a boundary! Take for example the unit circle which is the set of all points
 \[
 \textrm{Unit Circle} = \left\{ e^{i \theta} ~|~ \theta \in [0,2\pi]\right\}.
 \]
@@ -609,7 +609,7 @@ This is the \boldgreen{associated Legendre's equation}.  This equation turns out
 \[
 (1-x^2)f''(x)-2xf'(x)+m(m+1)f(x)=0.
 \]
-We will solve Legendre's equation instead.  
+We will solve Legendre's equation instead.
 
 \subsubsection{Solving Legendre's Equation}
 
@@ -632,7 +632,7 @@ We can plug this into Legendre's equation to get
 \begin{align*}
     (1-x^2)f''(x)-2xf'(x)+m(m+1)f(x)&=0\\
     (1-x^2)\sum_{n=2}^\infty n(n-1)a_n x^{n-2} - 2x \sum_{n=1}^\infty na_n x^{n-1} +m(m+1) \sum_{n=0}^\infty a_n x^n &=0\\
-    \sum_{n=2}^\infty n(n-1) a_n x^{n-2} - \sum_{n=2}^\infty n(n-1)a_n x^n -\sum_{n=1}^\infty 2n a_n x^{n}+\sum_{n=0}^\infty m(m+1)a_n x^n &=0. 
+    \sum_{n=2}^\infty n(n-1) a_n x^{n-2} - \sum_{n=2}^\infty n(n-1)a_n x^n -\sum_{n=1}^\infty 2n a_n x^{n}+\sum_{n=0}^\infty m(m+1)a_n x^n &=0.
 \end{align*}
 It is helpful to reindex the sums here to have all the powers of $x$ be the same so that we can relate each term slightly easier. So we have
 \begin{align*}
@@ -676,7 +676,7 @@ y_1(x)=\sum_{n=0}^\infty a_{2n}x^{2n} \qquad \textrm{and} \qquad y_2(x)=\sum_{n=
 
 We then have a polynomial for every choice of $m$ we make.  We will denote these polynomials by $f_m(x)$. For example, notice if we take $m=0$, then we have $a_{2k}=0$ for $k\geq 1$ and so we have that $y_1(x)=a_0$. For this case $y_2(x)$ will not converge unless $a_1=0$.  Thus, when $m=0$ we have the polynomial
 \[
-f_0(x) = a_0. 
+f_0(x) = a_0.
 \]
 If we take $m=1$, then we find that $a_{2k+1}=0$ for $k\geq 1$ and $y_1(x)$ diverges unless $a_0=0$.  Then we have
 \[
@@ -712,7 +712,7 @@ It turns out to be orthonormal polynomials that are most useful for us.  These p
 
 \section{Quantum Harmonic Oscillator}
 
-The utility of power series for solving differential equations is becoming clear. We can now to use this technique to study an extremely important example in quantum mechanics.  Specifically, the \boldgreen{Quantum Harmonic Oscillator} \index{quantum!harmonic oscillator} (QHO).  As we did previously with the free particle in a 1-dimensional box, we will set up a boundary value problem with Schr\"odinger's equation as the underlying differential equation.  In this case, there will actually be no boundaries for our domain as we will imagine the particle is allowed to be anywhere along the real line $\R$.  That is, the particle could take on any position in the domain $(-\infty,\infty)$.  In order to make the system more interesting, we will now set the potential $V(x)$ to be nonzero.  Thus, this particle is no longer free as it is being constrained by some type of external force (which is the derivative of the potential).  
+The utility of power series for solving differential equations is becoming clear. We can now to use this technique to study an extremely important example in quantum mechanics.  Specifically, the \boldgreen{Quantum Harmonic Oscillator} \index{quantum!harmonic oscillator} (QHO).  As we did previously with the free particle in a 1-dimensional box, we will set up a boundary value problem with Schr\"odinger's equation as the underlying differential equation.  In this case, there will actually be no boundaries for our domain as we will imagine the particle is allowed to be anywhere along the real line $\R$.  That is, the particle could take on any position in the domain $(-\infty,\infty)$.  In order to make the system more interesting, we will now set the potential $V(x)$ to be nonzero.  Thus, this particle is no longer free as it is being constrained by some type of external force (which is the derivative of the potential).
 
 We take $V(x)=\frac{1}{2}kx^2$ which is the same potential we have seen for a spring on a mass and it is found via Hooke's law.  Recall the Hamiltonian is then
 \[
@@ -749,7 +749,7 @@ Likewise,
 \[
 \frac{d^2 \phi}{dy^2} = (-1 + y^2)\phi \approx y^2 \phi.
 \]
-This analysis leads us to an ansatz $\Psi(y)=f(y)\phi(y)$ for the QHO equation.  This technique is very similar to how we derived the integrating factor technique.  Often times we seek to deconstruct solutions, and asymptotic analysis is just one way of doing that. 
+This analysis leads us to an ansatz $\Psi(y)=f(y)\phi(y)$ for the QHO equation.  This technique is very similar to how we derived the integrating factor technique.  Often times we seek to deconstruct solutions, and asymptotic analysis is just one way of doing that.
 
 Taking this ansatz, we can plug this into the QHO equation to yield a new differential equation for the function $f(y)$
 \[
@@ -794,7 +794,7 @@ which leads to determining the energy eigenvalues
 \[
 \boxed{E=\left(n+\frac{1}{2}\right) \hbar \omega.}
 \]
-Amazingly, the energy eigenvalues grow linearly! So each state will have an energy level $\hbar \omega$ greater than the previous. 
+Amazingly, the energy eigenvalues grow linearly! So each state will have an energy level $\hbar \omega$ greater than the previous.
 
 Going back to our original variable, this gives rise to the states
 \[
@@ -810,11 +810,11 @@ So for every $n$, we have a state with a corresponding energy level. Using the H
     n&=1 & E&=\frac{3\hbar \omega}{2} & \psi_1(x)&=a_0 \left(2\sqrt{\frac{m \omega}{\hbar}}x\right)e^{-\frac{m\omega x^2}{2\hbar}}\\
     n&=2 & E&=\frac{5\hbar \omega}{2} & \psi_2(x)&=a_0 \left(4\frac{m \omega}{\hbar}x^2-2\right)e^{-\frac{m\omega x^2}{2\hbar}}
 \end{align*}
-As with the particle in the box, we can determine $a_0$ via the normalization process by requiring 
+As with the particle in the box, we can determine $a_0$ via the normalization process by requiring
 \[
 1=\int_{-\infty}^\infty \psi_n^2(x)dx,
 \]
-to get 
+to get
 \[
 a_0 = \left(\frac{m\omega}{\pi \hbar}\right)^{\frac{1}{4}}.
 \]
@@ -831,3 +831,366 @@ One fundamental difference between the solutions to the QHO and the particle in 
     \caption{Ground state and potential for the QHO.}
 \end{figure}
 For a classical particle with energy $E$, we can never observe the particle outside the region of $x$ where $\frac{1}{2}kx^2=E$. That is, we must always have the particle between $\left[ -\sqrt{\frac{2E}{k}}, \sqrt{\frac{2E}{k}}\right]$.  This is due to the fact that the particle does not have enough energy to move to any further out $x$ values. However, looking at the graph above, one sees that there is area under the curve outside the classically allowed region.  Indeed, there is even a nonzero area under the curve no matter how far out in $x$ values you look! What this means is that we could possibly observe that a particle passes through this potential energy barrier.  This phenomenon is known as \boldgreen{quantum tunneling} \index{quantum!tunneling}. This is yet another fascinatingly non-classical result we find when we study quantum mechanics.  It is deeply important!
+
+\section*{Problems}
+
+\begin{problem}
+Complete all the exercises in this chapter.
+\end{problem}
+
+\begin{problem}
+Often we wish to think about functions being represented by series.  For example, we can consider the function
+\[
+f(x)=\sum_{n=0}^\infty \frac{x^n}{n!}
+\]
+where $n!$ is read as ``$n$-factorial" and
+\[
+n! = n\cdot (n-1)\cdot (n-2) \cdots 2 \cdot 1.
+\]
+Then $1!=1$ and we define $0!=1$ as well.
+\begin{enumerate}[(a)]
+    \item Consider $f(1)$.  Use a tool like WolframAlpha to compute the series
+    \[
+    f(1)=\sum_{n=0}^\infty \frac{1}{n!}
+    \]
+    \item For any value of $x$, this series converges. So this defines a function on all real numbers. In fact, the series converges even for complex numbers. Simplify the series into its real and imaginary parts. Note,
+    \[
+    f(ix) = \sum_{n=0}^\infty \frac{(ix)^n}{n!}.
+    \]
+    \item We can take derivatives of the function $f(x)$ by differentiating the series \emph{term by term}. That is,
+    \[
+    \frac{d}{dx} f(x) = \frac{d}{dx} \sum_{n=0}^\infty \frac{x^n}{n!} = \sum_{n=0}^\infty \frac{d}{dx} \left( \frac{ x^n}{n!}\right).
+    \]
+    \item Show that $\frac{d}{dx}f(x)=f(x)$.
+    \item What is your guess for what function $f(x)$ is?
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Find the radius of convergence for the following power series.
+\begin{enumerate}[(a)]
+    \item $\displaystyle{\sum_{n=1}^\infty \frac{x^n}{n}}$;
+    \item $\displaystyle{\sum_{n=1}^\infty \frac{x^n}{n^2}}$;
+    \item $\displaystyle{\sum_{n=0}^\infty (-1)^n x^n}$;
+    \item Repeat (c) but for $z\in \C$ instead of $x\in \R$.
+    \item How does the convergence in (a) and (b) compare with the convergence of the typical $p$-series?
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+A \emph{Taylor series centered at $a$} is a power series for a function $f$ is computed by
+\[
+f(x) = \sum_{n=0}^\infty \frac{f^{(n)}(x)}{n!}(x-a)^n.
+\]
+When $a=0$, we call this a \emph{Maclaurin series}.
+\begin{enumerate}[(a)]
+    \item Compute the Maclaurin series for $e^x$.
+    \item Compute the Taylor series for $e^x$ centered at $a=1$.
+    \item Compute the Maclaurin series for $\cos(x)$.
+    \item Compute the Maclaurin series for $\sin(x)$.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Consider the recursive sequence generated by $a_n = \frac{a_{n-1}}{n}$ with $a_0=1$.  We can generate a power series for $e^x$ we have seen before from this data
+\[
+e^x=\sum_{n=0}^\infty a_n x^n
+\]
+from this data.
+\begin{enumerate}[(a)]
+    \item Write down the first five terms of the sequence $\{a_n\}_{n=0}^\infty$ to show that it is the same as the sequence $\left\{\frac{1}{n!}\right\}_{n=0}^\infty$.
+    \item Using some test for series convergence, show that the power series for $e^x$ converges for any $x\in \R$. This defines the function $e^x$ on all real numbers.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+How might you arrive at the above recursive sequential definition for $e^x$? Consider defining $e^x$ to be the solution to the initial value problem
+\[
+\frac{d}{dx} e^x = e^x \qquad \textrm{and} \qquad e^0=1.
+\]
+We have seen that we can differentiate a power series term by term and this will help us here.
+\begin{enumerate}[(a)]
+    \item Let $e^x = \sum_{n=0}^\infty a_n x^n$ where we are pretending (for the moment) that we don't know what $a_n$ is.  Using the series definition of $e^x$, write out the differential equation above.
+    \item Now, by matching coefficients on the same powers of $x$, can you find the relationship on $a_n$ posed in Problem 1?
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Recall that we can also take $e^z$ with complex numbers $z\in \C$. In the last worksheet, we found we can write
+\begin{align*}
+e^{ix} = \sum_{n=0}^\infty \frac{(ix)^n}{n!}&= \sum_{n=0}^\infty \frac{(-1)^n x^{2n}}{(2n)!} + i \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{(2n+1)!}\\
+&= \cos(x) + i \sin(x).
+\end{align*}
+Using the above fact and work from Problem 1, show that $e^z$ converges for any $z\in \C$.
+\end{problem}
+
+\begin{problem}
+We have differentiated series term by term which will prove to be useful for solving ODEs.  However, we can also integrate them term by term which proves useful for computing integrals of functions that have no ``closed-form" anti-derivative.  Take for example, the \emph{Gaussian function} (or \emph{normal distribution})
+\[
+f(x;\mu,\sigma)=\frac{1}{\sqrt{2\pi \sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}.
+\]
+This describes a probability distribution on the real line with mean $\mu$ and standard deviation $\sigma$. The semi-colon notation for $f(x;\mu,\sigma)$ just means $\mu,\sigma$ are parameters (as opposed to variables) for the function.
+\begin{enumerate}[(a)]
+    \item Using the power series for $e^x$, write the power series for the Gaussian $f(x;\mu,\sigma)$.
+    \item Now, suppose we want to find the probability of an event occurring between $\mu \pm \sigma$ (that is, within one standard deviation of the mean).  For the sake of ease, let $\mu=0$ and $\sigma=1$ and integrate the series term by term.
+    \item Using the anti-derivative you made in (b), compute an approximation to the definite integral on the region $[-1,1]$ which will tell us the probability of an event occuring within one standard deviation of the mean.
+    \item Look at a $z$-score table to see how close your approximation is.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}[Euler's Formula]
+	Given that
+	\[
+	\cos(x) = \sum_{n=0}^\infty \frac{(-1)^n x^{2n}}{(2n)!} \qquad \textrm{and} \qquad \sin(x) = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{(2n+1)!},
+	\]
+	\begin{enumerate}[(a)]
+		\item Plot the approximations of both $\cos(x)$ and $\sin(x)$ versus the original function for order 1,5,20 over the domain $[-4\pi,4\pi]$.
+\item Show that
+\[
+e^{ix} = \cos(x) + i \sin(x),
+\]
+using the power series representation for the exponential function $e^x$.
+\item Show that cosine is even, $\cos(-x)=\cos(x)$, and that sine is odd $\sin(-x)=-\sin(x)$.
+\item Compute $\frac{d}{dx} e^{ix}$ using the series representation and show that $\frac{d}{dx}\cos(x)=-\sin(x)$ and $\frac{d}{dx}\sin(x)=\cos(x)$.
+	\end{enumerate}
+
+\end{problem}
+
+\begin{problem} $p$-series are actually related to a very important function called the \emph{Riemann zeta function}.  This function is involved in a million dollar math problem! If you're interested in other million dollar problems, look up the Clay Institute Millennium Problems. The Riemann zeta function is given by
+\[
+\zeta (s) = \sum_{n=1}^\infty \frac{1}{n^s}.
+\]
+\begin{enumerate}[(a)]
+    \item Use the integral test to show that the $p$-series
+    \[
+    \sum_{n=1}^\infty \frac{1}{n^2}
+    \]
+    converges.  Look up what this series converges to and write it down. This is $\zeta(2)$.
+    \item Use the comparison test to show that the $p$-series
+    \[
+    \sum_{n=1}^\infty \frac{1}{n^3}
+    \]
+    converges. This converges as well to $\zeta(3)$. Look up what this approximate value is.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Find the radius of convergence for the following power series
+\begin{enumerate}[(a)]
+    \item $\displaystyle{\sum_{n=1}^\infty \frac{x^n}{n(n+1)}}$;
+    \item $\displaystyle{\sum_{n=0}^\infty \frac{x^{2n+1}}{(2n+1)!}}$.
+\end{enumerate}
+\end{problem}
+
+
+\begin{problem} Consider the function
+\[
+f(x)=\frac{1}{1-x}.
+\]
+\begin{enumerate}[(a)]
+    \item Compute the Taylor series centered at $a=0$ for the function.
+    \item Find the antiderivative $\int \frac{dx}{1-x}$ using the Taylor series for $f(x)$ found in (a).
+    \item Write down the Taylor series for $\ln(1-x)$ centered at $a=0$ and compare to your answer in (b).
+\end{enumerate}
+\end{problem}
+
+\begin{problem}~
+\begin{enumerate}[(a)]
+    \item Compute the Taylor series centered at $a=0$ for $f(x)=e^{-\frac{x^2}{2}}$.
+    \item Use the Taylor series for $e^x$ and modify it to find a power series for $f(x)$. Is this the same as the series in (a)?
+    \item Plot the original function $f(x)$ compared to the first, second, third, and fourth term approximation for the series on the same graph.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+How can we approximate a (possibly complicated) function by using a power series? Why is this useful (specifically for computation on a computer)?
+\end{problem}
+
+\begin{problem} Consider the function
+\[
+f(x)=\sqrt{x}.
+\]
+\begin{enumerate}[(a)]
+\item \textbf{(2 pts.)} Find the second order Taylor approximation to $f(x)$ at the point $x=1$.
+\item \textbf{(2 pts.)} Consider the nonlinear 2$\textrm{nd}$ order autonomous equation
+\[
+x'' + x' + \sqrt{x} = 0.
+\]
+How could we make an approximate ODE using Taylor approximations?
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Consider the differential equation
+\[
+f'(x) = \frac{1}{\sqrt{1-x^2}} f(x).
+\]
+\begin{enumerate}[(a)]
+    \item Write down the 2$^\textrm{nd}$ order Taylor approximation to $\frac{1}{\sqrt{1-x^2}}$ centered at zero.
+    \item Using this second order approximation, find the general solution to the differential equation using separation.
+    \item The solution you find using the approximation doesn't have an issue at $x=1$, but I claim the original equation does.  What is wrong at $x=1$? Our approximation is then only reasonable in the window $[0,1)$ (and really isn't that accurate near 1 either).
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Consider the differential equation
+\[
+f'(x)=xf(x)
+\]
+with initial condition $f(0)=1$.
+\begin{enumerate}[(a)]
+    \item Find the particular solution to this separable differential equation.
+    \item What is the Taylor series centered at zero for this solution?
+    \item Now, assume that the solution $f(x)$ can be written as a power series
+    \[
+    f(x) = \sum_{n=0}^\infty a_n x^n.
+    \]
+    Determine all of the coefficients $a_n$ which will give us the power series representation for $f(x)$. \emph{Hint: use your solution from (a) to help you.}
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Consider the differential equation
+\[
+(x-1)f'(x) + f(x)=0
+\]
+with initial condition $f(0)=1$.
+\begin{enumerate}[(a)]
+    \item Find the solution to this equation using separation.
+    \item Find the Taylor series centered at zero for your solution in (a).
+    \item Again, suppose that the solution can be written as a power series and determine all the coefficients $a_n$ so that we find the power series representation for $f(x)$. \emph{Hint: use your solution from (a) to help you.}
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+We derived two linearly independent (even and odd) solutions to \emph{Legendre's equation}
+\[
+(1-x^2)f''(x)-2xf'(x)+\alpha(\alpha+1)f(x)=0
+\]
+which were
+\[
+f(x)=\sum_{n=0}^\infty a_{2n}x^{2n} \qquad \textrm{and} \qquad f(x)=\sum_{n=0}^\infty a_{2n+1}x^{2n+1}.
+\]
+\begin{enumerate}[(a)]
+    \item Look up where this equation shows up in quantum mechanics and write it down.
+    \item If we add boundary conditions then we get a finite polynomial for each choice of $\alpha = 0,1,2,3,\dots$. Using this, the first four polynomials are
+    \begin{align*}
+        f_0(x)&=1 &&& f_1(x)&=x\\
+        f_2(x)&=1-3x^2 &&& f_3(x)&=x-\frac{5x^3}{3}.
+    \end{align*}
+    Show that these above polynomials are \emph{orthogonal} by showing
+    \[
+    \int_{-1}^1 f_i(x)f_j(x)dx = 0
+    \]
+    when $i\neq j$.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Bessel functions can arise as the vibrational states of disk shaped objects (e.g., ripples that form in drum heads and cymbals when struck), or as electromagnetic waves in a cylindrical waveguide, or in diffraction from DNA.  The \emph{Bessel equation of order zero} is given by
+\[
+x^2 f''+xf'+x^2f =0,
+\]
+where $f$ is a function of $x$.
+
+These parts will walk you through finding a solution to the equation.  I give you the answer in part (a) (which you will check is a solution), but you can (and should) use this to help guide you through the remaining parts. \emph{The trick for this problem is to be careful and to write out the first few terms of series when needed. Wolfram Alpha can help you write partial sums.}
+\begin{enumerate}[(a)]
+    \item Show that the power series
+    \[
+        f(x) = a_0 \sum_{n=0}^\infty \frac{(-1)^n}{2^{2n} (n!)^2} x^{2n},
+    \]
+    is a general solution to the Bessel equation of order zero.
+    \item Take a power series ansatz for $f(x)$.  Then, using that ansatz in the ODE, show that you arrive at the condition
+    \[
+        a_1x + \sum_{n=2}^\infty \left[ n^2 a_n + a_{n-2} \right]x^n = 0.
+    \]
+    \item Argue now that all the odd terms of the series for your solution must be odd. Do not use the given answer in (a) as your reasoning!
+    \item Determine a general form for $a_{2n}$ and show that you get the same solution as in part (a).
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Consider the two example systems from quantum mechanics. First, for a particle in a box of length 1 we have the equation
+\[
+-\frac{\hbar^2}{2m}\frac{d^2 \Psi}{dx^2} = E\Psi,
+\]
+with boundary conditions $\Psi(0)=0$ and $\Psi(1)=0$.
+
+Second,  the Quantum Harmonic Oscillator (QHO)
+\[
+\left(-\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + \frac{1}{2} k x^2\right) \Psi = E\Psi
+\]
+\begin{enumerate}[(a)]
+    \item Write down the states for both systems. What are their similarities and differences?
+    \item Write down the energy eigenvalues for both systems. What are their similarities and differences?
+    \item Plot the first three states of the QHO along with the potential for the system.
+    \item Explain why you can observe a particle outside of the ``classically allowed region". \emph{Hint: you can use any state and compute an integral to determine a probability of a particle being in a given region.}
+\end{enumerate}
+\end{problem}
+
+\begin{problem} ~
+\begin{enumerate}[(a)]
+\item \textbf{(3 pts.)} Give a definition of a sequence and explain the difference between a sequence and series. (\emph{This does not need to be overly precise!})
+
+\item \textbf{(3 pts.)} Give a definition for a sequence to converge to a limit $L$. How can you use this to give a definition for a series to converge? (\emph{Again, this does not need to be overly precise!})
+
+    \item \textbf{(2 pts.)} Explain why the following statement is true or false. To show the statement is true, provide a sound argument. To show a statement is false, you need only provide a counter example.\\
+
+\emph{If the sequence $a_n \to 0$, then $\displaystyle{\sum_{n=1}^\infty a_n}$ converges.}
+
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Note that the power series for $\sin(x)$ is given by
+\[
+\sin(x) = \sum_{n=0}^\infty \frac{(-1)^{n}}{(2n+1)!}x^{2n+1}.
+\]
+\begin{enumerate}[(a)]
+\item \textbf{(2 pts.)} To third order, we have
+\[
+\sin(x) \approx x -\frac{x^3}{6}.
+\]
+Approximate $\sin(\pi)$ and compare to to the true answer ($\sin(\pi)=0$). \emph{Hint: you can assume $\pi \approx 3$.}
+\item \textbf{(2 pts.)} Write down the power series for $\sin(3x^3)$.
+\end{enumerate}
+\end{problem}
+
+\vspace*{0.5cm}
+%\begin{problem}~
+%\begin{enumerate}[(a)]
+%\item \textbf{(2 pts.)} Compute the derivative of the power series
+%\[
+%f(x) = \sum_{n=1}^\infty \frac{x^n}{n^n}.
+%\]
+%\item \textbf{(2 pts.)} Compute the antiderivative of the power series
+%\[
+%g(x) = \sum_{n=0}^\infty (n+1)x^n.
+%\]
+%\end{enumerate}
+%\end{problem}
+
+
+\begin{problem}~
+\begin{enumerate}[(a)]
+\item \textbf{(2 pts.)} Consider the recursive sequence
+\[
+a_{n} = \frac{1}{2} a_{n-1}
+\]
+with the base case $a_0=1$. Show that the formula for $a_n$ is
+\[
+a_n = \frac{1}{2^n}.
+\]
+\item \textbf{(2 pts.)} Consider the power series with these coefficients
+\[
+f(x)=\sum_{n=0}^\infty a_n x^n = \sum_{n=0}^\infty \frac{x^n}{2^n}.
+\]
+Argue that
+\[
+f(x)=\frac{2}{2-x}.
+\]
+\emph{Hint: can you think of this as a geometric series?}
+\item \textbf{(2 pts.)} Compute the derivative of $f(x)$ using the power series representation.
+\end{enumerate}
+\end{problem}
+

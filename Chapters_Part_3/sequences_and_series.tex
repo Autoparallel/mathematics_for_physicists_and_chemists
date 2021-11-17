@@ -13,7 +13,7 @@ Sequences can come up in all types of ways.  For example, consider these two seq
 \[
 a_n = \textrm{the $n^\textrm{th}$ digit of the number $\pi$}
 \]
-and so 
+and so
 \[
 \{a_n\}_{n=1}^\infty = 3,~1,~4,~1,~5, \dots.
 \]
@@ -46,14 +46,14 @@ a_n \to L.
 If a sequence does not converge to any limit, then we say the sequence \boldgreen{diverges}.
 \end{df}
 
-Admittedly, this definition is a bit obtrusive.  What is it really saying?  Let's decode this a bit. Think of $\epsilon$ as a tolerance parameter (i.e., how accurate you would like a measurement to be) telling us how far from the ideal measurement $L$ we are. Then, what this definition is saying is that if we look far enough along in our sequence we can be as close to the ideal $L$ as we wish.  
+Admittedly, this definition is a bit obtrusive.  What is it really saying?  Let's decode this a bit. Think of $\epsilon$ as a tolerance parameter (i.e., how accurate you would like a measurement to be) telling us how far from the ideal measurement $L$ we are. Then, what this definition is saying is that if we look far enough along in our sequence we can be as close to the ideal $L$ as we wish.
 
 \begin{ex}{Approximations with $\pi$}{approx_pi}
 Consider the two sequences $\{a_n\}_{n=1}^\infty$ and $\{b_n\}_{n=1}^\infty$ we generated for $\pi$.  Which ones converge? Let us take a look first at
 \[
 \{a_n\}_{n=1}^\infty = 3,~1,~4,~1,~5, \dots.
 \]
-Note that this sequence, if we keep looking at successive digits, does not approach any single value.  In fact, if it did approach a single value it would have to approach a decimal $0,1,\dots, 9$.  Let's say that our sequence did converge to the decimal $0$. In which case our definition of convergence would imply that if we chose a tolerance of $0.5$, then at some point in our sequence we would have 
+Note that this sequence, if we keep looking at successive digits, does not approach any single value.  In fact, if it did approach a single value it would have to approach a decimal $0,1,\dots, 9$.  Let's say that our sequence did converge to the decimal $0$. In which case our definition of convergence would imply that if we chose a tolerance of $0.5$, then at some point in our sequence we would have
 \[
 |a_K - 0|=|a_n|=a_n<\epsilon=0.5,
 \]
@@ -71,13 +71,13 @@ Now, $b_n$ is defined to be the $n^\textrm{th}$ approximation of $\pi$, so if we
 \[
 |b_K - \pi| \leq |0.0415\dots | < 0.1 = \epsilon.
 \]
-Similarly, we could choose $\epsilon = 0.01$ and let $N=3$.  
+Similarly, we could choose $\epsilon = 0.01$ and let $N=3$.
 \end{ex}
 
 Often we want to define sequences in a functional way.  That is, we like to specify what the $n^\textrm{th}$ term of the sequence is by a function of $n$, $f(n)$. This is typically how sequences appear and it makes working with the definition of convergence a bit more simple as we can use rules from limits that we already know.
 
 \begin{ex}{A Sequence Given by a Function}{sequence_by_funct}
-Consider the sequence $\{a_n\}_{n=1}^\infty$ where 
+Consider the sequence $\{a_n\}_{n=1}^\infty$ where
 \[
 a_n = f(n) = \frac{1}{n}.
 \]
@@ -93,7 +93,7 @@ Now, we have that
 \[
 a_K=\frac{1}{K} < \epsilon
 \]
-which we can rearrange 
+which we can rearrange
 \begin{align*}
     \frac{1}{K} & < \epsilon \\
     \iff~ \frac{1}{\epsilon} & < K.
@@ -107,7 +107,7 @@ We can see a picture of what is going on here.  I'll put the $\epsilon$ as a sol
         \includegraphics[width=\textwidth]{Figures_Part_3/tolerance_epsilon=05.png}
         \caption{$\epsilon=0.5$.}
     \end{subfigure}
-    ~ 
+    ~
     \begin{subfigure}[h]{0.3\textwidth}
         \includegraphics[width=\textwidth]{Figures_Part_3/tolerance_epsilon=01.png}
         \caption{$\epsilon=0.1$.}
@@ -121,13 +121,13 @@ We can see a picture of what is going on here.  I'll put the $\epsilon$ as a sol
         \end{figure}
 \end{ex}
 
-This definition of convergence is essentially the exact same definition as what we have seen for functions converging to their limit.  Hence, all the results we have on functions extends to this case.  This is why we wish to work with sequences defined by functions $f(n)$.  
+This definition of convergence is essentially the exact same definition as what we have seen for functions converging to their limit.  Hence, all the results we have on functions extends to this case.  This is why we wish to work with sequences defined by functions $f(n)$.
 
 \begin{prop}{Limit of Functions Gives the Limit for a Sequence}{limit_function_sequence}
 Consider a sequence $\{a_n\}_{n=1}^\infty$ with $a_n = f(n)$.  Then the sequence converges to $L$ if and only if $\lim_{n\to \infty} f(n) = L$.
 \end{prop}
 
-Here's a short list of some limits you should feel free to use. 
+Here's a short list of some limits you should feel free to use.
         \begin{table}[H]
         \centering
         \renewcommand{\arraystretch}{1.75}
@@ -170,7 +170,7 @@ We call such a sequence $\{a_n\}_{n=1}^\infty$ a \boldgreen{Cauchy sequence}.  T
 \subsection{Recursive Sequences}
 
 Some sequences we will see are defined in a \emph{recursive} way.  Meaning that instead of supplying a function for the terms (i.e., $a_n = f(n)$), we tend to start with an initial term $a_1$ and define future terms based on that.  For example, we could define a sequence $\{a_n\}_{n=1}^\infty$ by
-\[ 
+\[
 a_1 = 1 \qquad \textrm{and} \qquad a_n = \frac{1}{2} a_{n-1}.
 \]
 From this definition, we can find that
@@ -196,7 +196,7 @@ We can write the first few terms in this sequence by following the above rule wi
 \[
 \{F_n\}_{n=1}^\infty = 0,1,1,2,3,5,8,13,21,34,\dots.
 \]
-This sequence shows up in many natural systems! 
+This sequence shows up in many natural systems!
 \end{ex}
 
 \begin{exercise}
@@ -213,7 +213,7 @@ or even multiply them
 \[
 \prod_{n=1}^\infty a_n = a_1\cdot a_2 \cdot a_3 \cdots.
 \]
-In our case, we will care about adding up terms in a sequence. 
+In our case, we will care about adding up terms in a sequence.
 
 \begin{df}{Series}{series}
 Given a sequence $\seqan$ we can create an (infinite) \boldgreen{series}
@@ -228,7 +228,7 @@ Consider a series $A=\sum_{n=1}^\infty a_n$.  We can then consider \boldgreen{pa
 \[
 A_N = \sum_{n=1}^N a_n = a_1 + a_2 + a_3 + \cdots + a_N.
 \]
-Now, we can collect all of the partial sums $A_1,A_2,A_3,\dots$ and notice that this creates a sequence $\seqAn$.  
+Now, we can collect all of the partial sums $A_1,A_2,A_3,\dots$ and notice that this creates a sequence $\seqAn$.
 
 \begin{df}{Convergence of a Series}{convergence_series}
 Given a series $\displaystyle{\serA}$ and the sequence of partial sums $\seqAn$. We say that the series $\serA$ \boldgreen{converges} to $A$ if the sequence of partial sums converges to $A$ and put
@@ -321,7 +321,7 @@ and hence we can plug in for both $a$ and $r$ to see
 How about convergence for other types of series? There is a test that we can perform that will tell us more information.  We call this test the \boldgreen{ratio test}. However, the ratio test won't be a test that tells us if \emph{any} series converges or diverges.
 
 \begin{prop}{Ratio Test}{ratio_test}
-Consider the series $\serA$. If we have that 
+Consider the series $\serA$. If we have that
 \[
 L=\lim_{n\to \infty}\left| \frac{a_{n+1}}{a_n}\right|<1,
 \]
@@ -342,21 +342,21 @@ Hence the series converges (absolutely).
 \end{prop}
 
 \begin{remark}
-A series $\serA$ \boldgreen{converges absolutely} if 
+A series $\serA$ \boldgreen{converges absolutely} if
 \[
-\sum_{n=1}^\infty |a_n| 
+\sum_{n=1}^\infty |a_n|
 \]
 converges.
 \end{remark}
 
-The ratio test is a helpful tool, but it does have its shortcomings.  We can take a look at an example where the test tells us pertinent information and one where it does not.  
+The ratio test is a helpful tool, but it does have its shortcomings.  We can take a look at an example where the test tells us pertinent information and one where it does not.
 
 \begin{ex}{Series for $e$}{series_for_e}
 One can actually define the number $e$ by the series
 \[
 e=\sum_{n=0}^\infty \frac{1}{n!}
 \]
-where $n!$ is the factorial function 
+where $n!$ is the factorial function
 \[
 n!=n\cdot (n-1)\cdot (n-2)\cdots 2\cdot 1
 \]
@@ -393,7 +393,7 @@ So, for any value of $p$, the ratio test tells us nothing.  However, we can show
 \end{ex}
 
 \begin{exercise}
-Investigate the limit in the ratio test 
+Investigate the limit in the ratio test
 \[
 \lim_{n\to \infty} \left|\frac{\frac{1}{(n+1)^p}}{\frac{1}{n^p}}\right|
 \]
@@ -424,13 +424,13 @@ Now, if $0<p<1$, then we have
     \int_1^\infty \frac{1}{x^p}dx &= \left[\frac{1}{-p+1} x^{-p+1} \right]_1^\infty\\
     &= \infty,
 \end{align*}
-since $-p+1>0$ and so $x^{-p+1}$ approaches infinity as $x\to \infty$ and this integral diverges.  Hence, the $p$-series also diverges for $0<p<1$. 
+since $-p+1>0$ and so $x^{-p+1}$ approaches infinity as $x\to \infty$ and this integral diverges.  Hence, the $p$-series also diverges for $0<p<1$.
 
 For $p=1$, we find that the integral is
 \[
 \int_1^\infty \frac{1}{x} dx = \left[ \ln(x) \right]_1^\infty
 \]
-and $\ln(x)\to \infty$ as $x\to \infty$ so this integral diverges as well.  
+and $\ln(x)\to \infty$ as $x\to \infty$ so this integral diverges as well.
 
 For $p>1$, we have
 \[
@@ -452,3 +452,163 @@ Suppose that we have two series $\sum_{n=N_1}^\infty a_n$ and $\sum_{n=N_2}^\inf
     \item If $\sum_{n=N_1}^\infty a_n$ is divergent, then so is $\sum_{n=N_2}^\infty b_n$.
 \end{itemize}
 \end{prop}
+
+\section*{Problems}
+
+\begin{problem}
+Complete all the exercises in this chapter.
+\end{problem}
+
+\begin{problem}
+Write down the first few terms in the sequence for the following:
+\begin{enumerate}[(a)]
+    \item $a_n = n$;
+    \item $b_n = \frac{1}{n^2}$;
+    \item $c_n = 2^{-n}$.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+For the above sequences, state whether each converges or diverges.  If they converge, state the limit.
+\end{problem}
+
+\begin{problem}
+Consider the recursive sequence
+\[
+a_n = \frac{1}{2} a_{n-1} + 1
+\]
+with $a_1 = 1$.
+\begin{enumerate}[(a)]
+    \item Write the first few terms in the sequence.
+    \item Can you write $a_n$ as a function $f(n)$? If so, what is $f(n)$?
+    \item Does this sequence converge or diverge? Can you show why with a limit $\lim_{n\to \infty} f(n)$?
+    \item Can you show that this is a Cauchy sequence?
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Consider the sequence
+\[
+a_n = a r^n.
+\]
+\begin{enumerate}[(a)]
+    \item If $|r|<1$, show that this sequence $\{a_n\}_{n=0}^\infty$ converges to zero.
+    \item Consider now the \emph{geometric series}
+    \[
+    \sum_{n=0}^\infty a_n = \sum_{n=0}^\infty ar^n.
+    \]
+    Show that the $N^\textrm{th}$ partial sum for this series satisfies
+    \[
+    \sum_{n=0}^N ar^n = a\left( \frac{1-r^{N+1}}{1-r}\right).
+    \]
+    \item Does the geometric series converge for all $r$? For $|r|<1$? When it converges, what does it converge to?
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Consider the following sequences,
+\[
+a_n = \frac{1}{2}, \frac{1}{4}, \frac{1}{8}, \dots, \frac{1}{2^n}, \dots,
+\]
+and
+\[
+b_n =  1, \frac{1}{2}, \frac{1}{6},\frac{1}{24}, \dots,\frac{1}{n!}, \dots.
+\]
+\begin{enumerate}[(a)]
+    \item For what values of $N$ do we need for $a_N<0.01$ and $b_N<0.01$? Note, these will be different values for $N$.
+    \item Compute $\displaystyle{\lim_{n\to \infty} a_n}$.
+    \item Compute $\displaystyle{\lim_{n\to \infty} b_n}$.
+    \item Which sequence converges more quickly to its limit? (\emph{Hint: consider a ratio of the terms of the sequences and take a limit. Part (a) should help you think about this.})
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+With the same $a_n$ from Problem 6.6, consider the series
+\[
+A = \sum_{n=1}^\infty a_n.
+\]
+\begin{enumerate}[(a)]
+    \item Write down the $N^\textrm{th}$ partial sum $A_N$ for this series.
+    \item Does this sequence of partial sums converge? If so, to what?
+    \item Note that this is an \emph{geometric series} with $a=1$ and $r=\frac{1}{2}$. However, we start from $n=1$ instead of $n=0$. Show the value that this series converges to using the formula for a geometric series.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+With the same $b_n$ from Problem 6.6, consider the series
+\[
+B = \sum_{n=0}^\infty b_n.
+\]
+\begin{enumerate}[(a)]
+    \item Use the ratio test to show that this series converges.
+    \item Approximate the value the series converges to by considering larger and larger partial sums.
+    \item What number does this series converge to?
+\end{enumerate}
+\end{problem}
+
+
+\begin{problem}
+Consider the \emph{$p$-series}:
+\[
+\sum_{n=1}^\infty \frac{1}{n^p}.
+\]
+\begin{enumerate}[(a)]
+    \item For $p=1$, show that the ratio test is inconclusive.
+    \item For $p=2$, show that the ratio test is again inconclusive.
+    \item Look up the sum of the series for $p=1$ and $p=2$.  Notice how the ratio test is not perfect!
+\end{enumerate}
+\end{problem}
+
+\begin{problem}[Explicit Euler Method]
+	Consider the differential equation $x'=kx$ where $k\in \C$ is a complex parameter for the system. Note that the solution to this equation given the initial condition $x(0)=1$ is $x=e^{kt}$.
+	\begin{enumerate}[(a)]
+		\item Suppose we want to find an approximation to a solution using a computer. Let $t_0$ be some arbitrary time, define $\delta t$ to some fixed change in the input variable $t$ and let $\delta x =x(t_0+\delta t)-x(t_0)$ be the corresponding change in the output $x$. Compute the first order Taylor approximation of $x$ at the point $t_0$ to see that
+		\begin{equation}
+			\label{eq:1}
+		x(t_0+\delta t) \approx x(t_0)+x'(t_0)(\delta t)
+		\end{equation}
+		from which you can then note that
+		\begin{equation}
+			\label{eq:2}
+		x'(t_0) \approx \frac{\delta x}{\delta t}
+		\end{equation}
+	\item Define the \emph{explicit Euler approximation sequence} $\{x_\tau\}_{\tau=0}^T$ so that $x(t_0)=x_0$ and at later times $x(t_0+\tau\delta t)=x_\tau$. Show using the previous equations, the ODE itself, and the fact that $x_{\tau-1}+\delta x = x_{\tau}$ means can make a sequence
+	\[
+	x_{\tau} = x_{\tau-1} + kx_{\tau-1} \delta t.
+	\]
+	\item Let $k=1$, $\delta t = 0.01$, $t_0=0$, and let $x(0)=1$. Plot the explicit Euler approximation sequence using the following URL \url{http://www.calcul.com/show/calculator/recursive}. Compare this graph to the solution $x(t)=e^{t}$.
+	\item Let $k=-1$, $\delta t = 2$, $t_0=0$, and let $x(0)=1$. Plot the approximation again. Is there something wrong? How does this compare to what the solution should be?
+	\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Sequences show up in the realm of approximation all the time.  One of the first sequences one may encounter comes from \emph{Newton's method} for calculating roots to a function (see this week's discussion for more).  The idea is that we are handed a function $f(x)$ and pick an initial guess $x_0$ as a candidate for a root to $f(x)$. Then, we can compute a tangent line approximation to $f(x)$ at the point $x_0$. That is,
+\[
+f(x)\approx f'(x_0)(x-x_0)+f(x_0).
+\]
+From there, we can see where this tangent line intersects the $y=0$ axis which gives us a new $x$-value we call $x_1$.  If we solve for $x_1$, we find that we get
+\[
+x_1 = x_0 -\frac{f(x_0)}{f'(x_0)}.
+\]
+From here, we can generate a recursive sequence given by
+\[
+x_{n}=x_{n-1}-\frac{f(x_{n-1})}{f'(x_{n-1})}.
+\]
+that \emph{can possibly} give a better and better approximation to a root of $f(x)$, meaning that $x_n$ will tend to be an better approximation to a root of $f(x)$ than $x_{n-1}$. This method is in fact exactly how your TI-XX calculator finds zeros to a function (notice that you give bounds and an initial guess when you do this)!\\
+
+\noindent Feel free to use a calculator for this problem.
+\begin{enumerate}[(a)]
+    \item Consider the function $f(x)=x^2-1$ with the starting point of $x_0=2$, draw a picture that illustrates the first two iterations of Newton's method. (\emph{Hint: This requires drawing a tangent line to $f(x)$ at two different points and telling me what the intersections of these lines with the $x$-axis represent.})
+    \item Write the first four terms in the sequence for Newton's method. That is, find $x_0,\dots,x_3$ and write
+    \[
+    \{x_n\}_{n=0}^\infty = x_0,~x_1,~x_2,~x_3,\dots.
+    \]
+    \item This sequence approaches $+\sqrt{1}=1$ since this is the nearest root to $f(x)$ compared to our starting value. What is the first value of $N$ where the error $|x_N-1|<10^{-6}$?
+    \item If we instead have $g(x)=x^3-2x+2$ with an initial guess of $x_0=0$, write the first four terms of the sequence $x_0,\dots,x_3$ for Newton's method. Does this sequence seem to approach the real root $x\approx -1.7693$?
+\end{enumerate}
+\end{problem}
+
+
+
+
+
