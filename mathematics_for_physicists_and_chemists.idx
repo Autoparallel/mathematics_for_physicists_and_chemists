@@ -53,46 +53,46 @@
 \indexentry{method of undetermined coefficients|hyperpage}{78}
 \indexentry{homogeneous solution|hyperpage}{78}
 \indexentry{particular integral|hyperpage}{78}
-\indexentry{states!stationary|hyperpage}{99}
-\indexentry{wavefunction|hyperpage}{99}
-\indexentry{inner product|hyperpage}{99}
-\indexentry{orthogonal|hyperpage}{100}
-\indexentry{orthonormal|hyperpage}{100}
-\indexentry{polynomials!Legendre|hyperpage}{140}
-\indexentry{quantum!harmonic oscillator|hyperpage}{141}
-\indexentry{asympototic analysis|hyperpage}{141}
-\indexentry{polynomials!Hermite|hyperpage}{143}
-\indexentry{quantum!tunneling|hyperpage}{144}
-\indexentry{scalar|hyperpage}{154}
-\indexentry{orthogonal|hyperpage}{167}
-\indexentry{linear!transformation|hyperpage}{172}
-\indexentry{augmented matrix|hyperpage}{180}
-\indexentry{linearly independent|hyperpage}{185}
-\indexentry{linearly dependent|hyperpage}{186}
-\indexentry{inverse!matrix|hyperpage}{198}
-\indexentry{invertible|hyperpage}{198}
-\indexentry{identity|hyperpage}{198}
-\indexentry{identity!matrix|hyperpage}{199}
-\indexentry{similar|hyperpage}{201}
-\indexentry{eigen|hyperpage}{202}
-\indexentry{eigen!value|hyperpage}{203}
-\indexentry{eigen!vector|hyperpage}{203}
-\indexentry{matrix!diagonal|hyperpage}{209}
-\indexentry{matrix!transpose|hyperpage}{211}
-\indexentry{matrix!symmetric|hyperpage}{212}
-\indexentry{curve|hyperpage}{223}
-\indexentry{field|hyperpage}{223}
-\indexentry{tangent vector|hyperpage}{228}
-\indexentry{velocity vector|hyperpage}{228}
-\indexentry{normal vector|hyperpage}{230}
-\indexentry{acceleration vector|hyperpage}{230}
-\indexentry{directional derivative|hyperpage}{238}
-\indexentry{system of ODEs|hyperpage}{303}
-\indexentry{coupled|hyperpage}{303}
-\indexentry{state|hyperpage}{303}
-\indexentry{linear|hyperpage}{304}
-\indexentry{nonlinear|hyperpage}{304}
-\indexentry{gradient!flow|hyperpage}{307}
-\indexentry{gradient!descent|hyperpage}{307}
-\indexentry{diffusivity|hyperpage}{310}
-\indexentry{complex function|hyperpage}{320}
+\indexentry{states!stationary|hyperpage}{98}
+\indexentry{wavefunction|hyperpage}{98}
+\indexentry{inner product|hyperpage}{98}
+\indexentry{orthogonal|hyperpage}{99}
+\indexentry{orthonormal|hyperpage}{99}
+\indexentry{polynomials!Legendre|hyperpage}{139}
+\indexentry{quantum!harmonic oscillator|hyperpage}{140}
+\indexentry{asympototic analysis|hyperpage}{140}
+\indexentry{polynomials!Hermite|hyperpage}{142}
+\indexentry{quantum!tunneling|hyperpage}{143}
+\indexentry{scalar|hyperpage}{153}
+\indexentry{orthogonal|hyperpage}{166}
+\indexentry{linear!transformation|hyperpage}{171}
+\indexentry{augmented matrix|hyperpage}{179}
+\indexentry{linearly independent|hyperpage}{184}
+\indexentry{linearly dependent|hyperpage}{185}
+\indexentry{inverse!matrix|hyperpage}{197}
+\indexentry{invertible|hyperpage}{197}
+\indexentry{identity|hyperpage}{197}
+\indexentry{identity!matrix|hyperpage}{198}
+\indexentry{similar|hyperpage}{200}
+\indexentry{eigen|hyperpage}{201}
+\indexentry{eigen!value|hyperpage}{202}
+\indexentry{eigen!vector|hyperpage}{202}
+\indexentry{matrix!diagonal|hyperpage}{208}
+\indexentry{matrix!transpose|hyperpage}{210}
+\indexentry{matrix!symmetric|hyperpage}{211}
+\indexentry{curve|hyperpage}{221}
+\indexentry{field|hyperpage}{221}
+\indexentry{tangent vector|hyperpage}{226}
+\indexentry{velocity vector|hyperpage}{226}
+\indexentry{normal vector|hyperpage}{228}
+\indexentry{acceleration vector|hyperpage}{228}
+\indexentry{directional derivative|hyperpage}{236}
+\indexentry{system of ODEs|hyperpage}{301}
+\indexentry{coupled|hyperpage}{301}
+\indexentry{state|hyperpage}{301}
+\indexentry{linear|hyperpage}{302}
+\indexentry{nonlinear|hyperpage}{302}
+\indexentry{gradient!flow|hyperpage}{305}
+\indexentry{gradient!descent|hyperpage}{305}
+\indexentry{diffusivity|hyperpage}{308}
+\indexentry{complex function|hyperpage}{318}
